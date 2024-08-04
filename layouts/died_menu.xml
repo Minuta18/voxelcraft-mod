@@ -1,0 +1,4 @@
+<panel position-func="on_resize" size="400,400" context="menu">
+    <label>You died</label>
+    <button onclick='on_respawn()'>Respawn</button>
+</panel>

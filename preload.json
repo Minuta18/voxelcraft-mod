@@ -3,6 +3,9 @@
         "layouts/heart-damage",
         "layouts/heart-empty",
         "layouts/heart-full",
-        "layouts/heart-part"
+        "layouts/heart-part",
+        "layouts/hunger-empty",
+        "layouts/hunger-full",
+        "layouts/hunger-part"
     ]
 }

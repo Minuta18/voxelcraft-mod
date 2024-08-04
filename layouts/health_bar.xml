@@ -2,44 +2,5 @@
     size="500, 40" position-func="on_resize" 
     interactive="false" color="#00000000"
 >
-    <image 
-        pos="0, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="50, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="100, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="150, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="200, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="250, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="300, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="350, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="400, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
-    <image 
-        pos="450, 0" size="40, 40" interactive="false" 
-        src="layouts/heart-full"        
-    />
+    
 </container>
