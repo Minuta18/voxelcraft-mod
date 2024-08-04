@@ -1,0 +1,6 @@
+<container >
+    <image 
+        pos="100, 100" size="20, 20" interactive="false" 
+        src="layouts/heart-full"        
+    />
+</container>

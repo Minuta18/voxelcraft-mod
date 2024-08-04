@@ -1,0 +1,8 @@
+{
+    "textures": [
+        "layouts/heart-damage",
+        "layouts/heart-empty",
+        "layouts/heart-full",
+        "layouts/heart-part"
+    ]
+}
