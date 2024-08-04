@@ -1,10 +1,8 @@
-require "voxelcraft:logger"
+require "voxelcraft:logger/logger"
+require "voxelcraft:compatibility/init"
 
 local this = {}
 this.logger = logger
-
-this.on_world_open = function ()
-    this.logger.debug("voxelcraft.modules.core.on_world_open() called")
-end
+this.compatibility = compatibility
 
 voxelcraft_core = this

@@ -1,5 +1,10 @@
+require "voxelcraft:core"
+
 function on_open(invid)
-    print("OPEN HP BAR GUI", invid)
+    voxelcraft_core.logger.debug(string.format(
+        "voxelcraft.layout.health_bar.on_open(invid=%s) called",
+        invid
+    ))
 end
 
 function on_resize()
