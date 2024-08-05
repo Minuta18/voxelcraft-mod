@@ -17,9 +17,14 @@ health.damage = function (damage)
     damaged = 5; -- 0.25s
     player_health = player_health - damage
     player_health = math.max(player_health, 0)
+    audio.play_sound_2d("hit1", 0.5, 2)
     logger.debug(string.format(
         "Player damaged %s points. Now hp is %s", damage, player_health
     ))
+end
+
+health.set_damage = function ()
+    damaged = 5; 
 end
 
 health.is_damaged = function ()
