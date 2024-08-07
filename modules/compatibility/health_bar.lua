@@ -6,7 +6,7 @@ require "voxelcraft:gamemode/gamemode"
 health_bar = {}
 
 health_bar.on_health_bar_open = function (player_id)
-    logger.debug(string.format(
+    logger.info(string.format(
         "voxelcraft.modules.compatibility.on_health_bar_open(player_id=%s)"
         .. " called", player_id
     ))

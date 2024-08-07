@@ -25,6 +25,9 @@ end
 hunger.check_power = function ()
     local entity_id = player.get_entity(0)
     local player_entity = entities.get(entity_id)
+
+    if player_entity == nil then return nil end
+
     local rigidbody = player_entity.rigidbody
     local force = vec3.length(rigidbody:get_vel())
 

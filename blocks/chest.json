@@ -1,0 +1,12 @@
+{
+    "texture-faces": [
+        "chest_side",
+        "chest_side",
+        "chest_side",
+        "chest_side",
+        "chest_side",
+        "chest_front"
+    ],
+    "inventory-size": 30,
+    "rotation": "pane"
+}

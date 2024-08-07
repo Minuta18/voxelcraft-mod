@@ -2,7 +2,7 @@
 require "voxelcraft:core"
 
 function on_open(invid)
-    voxelcraft_core.logger.debug(string.format(
+    voxelcraft_core.logger.info(string.format(
         "voxelcraft.layout.health_bar.on_open(invid=%s) called",
         invid
     ))

@@ -1,0 +1,13 @@
+{
+    "texture-faces": [
+        "furnace_side",
+        "furnace_side",
+        "furnace_top",
+        "furnace_top",
+        "furnace_side",
+        "furnace_front"
+    ],
+    "inventory-size": 4,
+    "ui-layout": "voxelcraft:furnace",
+    "rotation": "pane"
+}

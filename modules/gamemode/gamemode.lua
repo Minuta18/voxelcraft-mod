@@ -19,9 +19,11 @@ gamemode.set_gamemode = function (gm)
     if gm == "creative" then
         hud.close("voxelcraft:health_bar")
         hud.close("voxelcraft:hunger_bar")
+        hud.close("voxelcraft:inventory_blocker")
     else
         hud.open_permanent("voxelcraft:health_bar")
         hud.open_permanent("voxelcraft:hunger_bar")    
+        hud.open_permanent("voxelcraft:inventory_blocker")
     end
     return "ok"
 end

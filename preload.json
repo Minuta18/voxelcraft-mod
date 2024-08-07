@@ -6,7 +6,9 @@
         "layouts/heart-part",
         "layouts/hunger-empty",
         "layouts/hunger-full",
-        "layouts/hunger-part"
+        "layouts/hunger-part",
+        "layouts/fire-icon",
+        "layouts/fire-icon2"
     ],
     "sounds": [
         "hit1"

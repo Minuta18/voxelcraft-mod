@@ -1,0 +1,11 @@
+{
+    "texture-faces": [
+        "table_front",
+        "table_right",
+        "table_down",
+        "table_top",
+        "table_front",
+        "table_right"
+    ],
+    "inventory-size": 10
+}

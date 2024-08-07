@@ -1,0 +1,15 @@
+<inventory size="524,208">
+    <slots-grid 
+        updatefunc="check_craft" rows="1" cols="1" 
+        start-index="0" pos="104,26" 
+    />
+    <image id="prg-icon" pos="108,82" size="48,48" src="layouts/fire-icon2" />
+    <slots-grid 
+        updatefunc="check_craft" rows="1" cols="1" 
+        start-index="1" pos="104,130" 
+    />
+    <slots-grid 
+        rows="1" cols="1" 
+        start-index="2" pos="364,78" 
+    />
+</inventory>

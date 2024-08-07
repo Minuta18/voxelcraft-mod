@@ -2,7 +2,7 @@
 require "voxelcraft:core"
 
 function on_open(invid)
-    voxelcraft_core.logger.debug(string.format(
+    voxelcraft_core.logger.info(string.format(
         "voxelcraft.layout.died_menu.on_open(invid=%s) called",
         invid
     ))
@@ -19,7 +19,7 @@ vplayer.tp_to_spawn = function ()
 end
 
 function on_respawn()
-    voxelcraft_core.logger.debug(
+    voxelcraft_core.logger.info(
         "voxelcraft.layout.died_menu.on_respawn() called"
     )
     voxelcraft_core.vplayer.respawn()
