@@ -14,8 +14,8 @@ function on_resize()
 end
 
 vplayer.tp_to_spawn = function ()
-    local player_spawn = player.get_spawnpoint(0)
-    player.set_pos(0, 0, 60, 0)
+    local x, y, z = player.get_spawnpoint(0)
+    player.set_pos(0, x, y, z)
 end
 
 function on_respawn()

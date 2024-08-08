@@ -3,5 +3,6 @@
         "voxelcraft:breaker_animator"
     ],
     "hitbox": [1.1, 1.1, 1.1],
-    "body-type": "static"
+    "body-type": "static",
+    "blocking": false
 }

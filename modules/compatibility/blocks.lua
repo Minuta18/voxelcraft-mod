@@ -23,3 +23,33 @@ block_operations.destroy_block = function (x, y, z)
     block.destruct(x, y, z, 0)
     block_operations.spawn_mini_block(block_id, 1, {x, y, z})
 end
+
+block_operations.place_block = function (
+    target_block_id, target_block_pos, 
+    normal, player_id
+)
+    local invid, slot = player.get_inventory(player_id)
+    local selected_item, selected_item_count = inventory.get(invid, slot)
+    if not string.match(item.name(selected_item), ".item$") then
+        return
+    end
+
+    inventory.set(invid, slot, selected_item, selected_item_count - 1)
+
+    local cords = target_block_pos
+    if not block.is_replaceable_at(
+        cords[1], cords[2], cords[3]
+    ) then
+        cords = vec3.add(cords, normal)
+    end
+    -- cords[1] = math.floor(cords[1])
+    -- cords[2] = math.floor(cords[2])
+    -- cords[3] = math.floor(cords[3])
+
+    block.place(
+        cords[1], cords[2], cords[3],
+        block.index(item.name(selected_item):gsub("%.item", "")),
+        0, player_id
+    )
+end
+
