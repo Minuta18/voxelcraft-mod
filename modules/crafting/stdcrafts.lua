@@ -144,6 +144,36 @@ crafting.add_crafting_table_craft({
     "core:empty", "voxelcraft:stick", "core:empty",
 }, {"voxelcraft:iron_sword", 1}, "voxelcraft:crafting_table")
 
+crafting.add_crafting_table_craft({
+    "core:empty", "base:glass.item", "core:empty",
+    "base:glass.item", "base:torch.item", "base:glass.item",
+    "core:empty", "base:glass.item", "core:empty",
+}, {"base:lamp.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "base:stone.item", "base:stone.item",
+    "core:empty", "base:stone.item", "base:stone.item",
+}, {"base:brick.item", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:iron", "voxelcraft:iron",
+    "core:empty", "voxelcraft:iron", "voxelcraft:iron",
+}, {"base:metal.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "base:metal.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:iron", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "base:planks.item", "base:planks.item",
+    "core:empty", "base:planks.item", "base:planks.item",
+    "core:empty", "base:planks.item", "base:planks.item",
+}, {"base:wooden_door.item", 3}, "voxelcraft:crafting_table")
+
 crafting.add_craft(function (slot_list)
     if slot_list[1][1] == "voxelcraft:iron_ore.item" then
         return {"voxelcraft:iron", 1}
@@ -151,3 +181,16 @@ crafting.add_craft(function (slot_list)
     return nil
 end, "voxelcraft:furnace")
 
+crafting.add_craft(function (slot_list)
+    if slot_list[1][1] == "base:sand.item" then
+        return {"base:glass.item", 1}
+    end
+    return nil
+end, "voxelcraft:furnace")
+
+crafting.add_craft(function (slot_list)
+    if slot_list[1][1] == "voxelcraft:cobblestone.item" then
+        return {"base:stone.item", 1}
+    end
+    return nil
+end, "voxelcraft:furnace")

@@ -17,7 +17,9 @@ function check_craft(invid, slot)
         player_items, "voxelcraft:crafting_table"
     )
     if result ~= nil then
-        inventory.set(invid, 9, item.index(result[1]), result[2])
+        local item_id, item_count = inventory.get(invid, 9)
+        inventory.set(
+            invid, 9, item.index(result[1]), result[2])
     else
         inventory.set(invid, 9, item.index("core:empty"), 0)
     end
