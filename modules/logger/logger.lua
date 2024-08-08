@@ -1,7 +1,7 @@
 ---@diagnostic disable-next-line: lowercase-global
 logger = {}
 
-local log_level = "DEBUG";
+local log_level = "INFO";
 
 logger.debug = function (message)
     if log_level == "DEBUG" then

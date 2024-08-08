@@ -26,7 +26,7 @@
     "voxelcraft:chest": 20,
     "voxelcraft:coal_ore": 100,
     "voxelcraft:cobblestone": 100,
-    "voxelcraft:crafting_table": 100,
+    "voxelcraft:crafting_table": 30,
     "voxelcraft:furnace": 100,
     "voxelcraft:iron_ore": 100
 }

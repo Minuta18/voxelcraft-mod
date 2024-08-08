@@ -10,19 +10,6 @@ local progress = 0
 
 MAX_DISTANCE = 11;
 
-function dump(o)
-    if type(o) == 'table' then
-       local s = '{ '
-       for k,v in pairs(o) do
-          if type(k) ~= 'number' then k = '"'..k..'"' end
-          s = s .. '['..k..'] = ' .. dump(v) .. ','
-       end
-       return s .. '} '
-    else
-       return tostring(o)
-    end
-end 
-
 function set_texture(texture)
     for i = 1, 6, 1 do
         rig:set_texture(
@@ -44,18 +31,43 @@ function on_render()
     find_selected_block()
 end
 
-function on_update()
-    if input.is_pressed("mouse:left") then
-        progress = progress + 1
-    else
-        progress = 0
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
     end
+
+    return false
+end
+
+function on_update()
+    -- TODO: refactor this function
     local selected_block_id = block.name(block.get(
         selected_block[1], selected_block[2], selected_block[3])
     )
     local current_block_max_progress = loader_api.get_hardness_by_block(
         selected_block_id
     )
+
+    local invid, slot = player.get_inventory(0)
+    local sel_item, item_count = inventory.get(invid, slot)
+
+    local info = loader_api.get_info_by_tool(item.name(sel_item))
+    local progress_speed = 1
+
+    if info ~= nil then
+        if has_value(info.materials, block.material(selected_block_id)) then
+            progress_speed = progress_speed * info.speed
+        end
+    end
+
+    if input.is_pressed("mouse:left") then
+        progress = progress + progress_speed
+    else
+        progress = 0
+    end
+
     if current_block_max_progress == nil then
         current_block_max_progress = -1
     end
@@ -73,14 +85,15 @@ function on_update()
     then
         set_texture("blocks:breaking5")
     end
-    if progress == current_block_max_progress then
+    if progress >= current_block_max_progress then
         progress = 0
         voxelcraft_core.compatibility.block_operations
             .destroy_block(
                 selected_block[1], selected_block[2], selected_block[3]
             )
-
-        find_selected_block()
+        -- find_selected_block()
+        selected_block = {0, 0, 0}
+        tsf:set_pos({0.5, 0.5, 0.5}) 
     end
 end
 
@@ -98,6 +111,9 @@ function on_used()
     local iendpoint = ray.iendpoint
     local normal = ray.normal
     local block = ray.block
+
+    voxelcraft_core.compatibility.block_operations
+        .interact_block(iendpoint)
 
     voxelcraft_core.compatibility.block_operations
         .place_block(block, iendpoint, normal, pid)

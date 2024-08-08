@@ -13,11 +13,6 @@ function on_resize()
     return window_size[1] / 2 - 200, window_size[2] / 2 - 200
 end
 
-vplayer.tp_to_spawn = function ()
-    local x, y, z = player.get_spawnpoint(0)
-    player.set_pos(0, x, y, z)
-end
-
 function on_respawn()
     voxelcraft_core.logger.info(
         "voxelcraft.layout.died_menu.on_respawn() called"

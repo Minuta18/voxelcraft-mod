@@ -1,0 +1,10 @@
+<inventory gravity="top-center" size="524,208">
+    <slots-grid 
+        updatefunc="check_craft" rows="2" cols="2" 
+        start-index="0" pos="130,52" 
+    />
+    <slots-grid 
+        updatefunc="clear_craft" count="1" rows="1" 
+        start-index="4" pos="364,78" 
+    />
+</inventory>

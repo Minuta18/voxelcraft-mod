@@ -1,11 +1,6 @@
 {
-  "blocks": [
-    "crafting_table",
-    "cobblestone",
-    "iron_ore",
-    "coal_ore",
-    "furnace",
-    "chest"
+  "entities": [
+    "breaker"
   ],
   "items": [
     "coal",
@@ -27,7 +22,13 @@
     "wooden_shovel",
     "wooden_sword"
   ],
-  "entities": [
-    "breaker"
+  "blocks": [
+    "crafting_table",
+    "cobblestone",
+    "iron_ore",
+    "coal_ore",
+    "furnace",
+    "chest",
+    "mini_crafter"
   ]
 }

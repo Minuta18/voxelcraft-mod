@@ -174,6 +174,32 @@ crafting.add_crafting_table_craft({
     "core:empty", "base:planks.item", "base:planks.item",
 }, {"base:wooden_door.item", 3}, "voxelcraft:crafting_table")
 
+crafting.add_crafting_table_inventory_craft({
+    "base:planks.item", "base:planks.item", 
+    "base:planks.item", "base:planks.item",
+}, {"voxelcraft:crafting_table.item", 1}, 
+"voxelcraft:crafting_table_inventory")
+
+crafting.add_crafting_table_inventory_craft({
+    "base:wood.item", "core:empty", 
+    "core:empty", "core:empty",
+}, {"base:planks.item", 4}, "voxelcraft:crafting_table_inventory")
+
+crafting.add_crafting_table_inventory_craft({
+    "core:empty", "base:wood.item", 
+    "core:empty", "core:empty",
+}, {"base:planks.item", 4}, "voxelcraft:crafting_table_inventory")
+
+crafting.add_crafting_table_inventory_craft({
+    "core:empty", "core:empty", 
+    "core:empty", "base:wood.item",
+}, {"base:planks.item", 4}, "voxelcraft:crafting_table_inventory")
+
+crafting.add_crafting_table_inventory_craft({
+    "core:empty", "core:empty", 
+    "base:wood.item", "core:empty",
+}, {"base:planks.item", 4}, "voxelcraft:crafting_table_inventory")
+
 crafting.add_craft(function (slot_list)
     if slot_list[1][1] == "voxelcraft:iron_ore.item" then
         return {"voxelcraft:iron", 1}

@@ -1,0 +1,56 @@
+{
+    "voxelcraft:wooden_axe": {
+        "speed": 1.5,
+        "materials": ["base:wood", "base:stone"]
+    },
+    "voxelcraft:wooden_hoe": {
+        "speed": 1.5
+    },
+    "voxelcraft:wooden_pickaxe": {
+        "speed": 1.5,
+        "materials": ["base:stone", "base:metal"]
+    },
+    "voxelcraft:wooden_shovel": {
+        "speed": 1.5,
+        "materials": ["base:grass", "base:grass_block", "base:stone"]
+    },
+    "voxelcraft:wooden_sword": {
+        "speed": 1.5
+    },
+    "voxelcraft:stone_axe": {
+        "speed": 2,
+        "materials": ["base:wood", "base:stone"]
+    },
+    "voxelcraft:stone_hoe": {
+        "speed": 2
+    },
+    "voxelcraft:stone_pickaxe": {
+        "speed": 2     ,   
+        "materials": ["base:stone", "base:metal"]
+    },
+    "voxelcraft:stone_shovel": {
+        "speed": 2,
+        "materials": ["base:grass", "base:grass_block", "base:stone"]
+    },
+    "voxelcraft:stone_sword": {
+        "speed": 2
+    },
+    "voxelcraft:iron_axe": {
+        "speed": 3,
+        "materials": ["base:wood", "base:stone"]
+    },
+    "voxelcraft:iron_hoe": {
+        "speed": 3
+    },
+    "voxelcraft:iron_pickaxe": {
+        "speed": 3,
+        "materials": ["base:stone", "base:metal"]
+    },
+    "voxelcraft:iron_shovel": {
+        "speed": 3,
+        "materials": ["base:grass", "base:grass_block", "base:stone"]
+    },
+    "voxelcraft:iron_sword": {
+        "speed": 3
+    }
+}

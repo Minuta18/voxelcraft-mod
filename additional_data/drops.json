@@ -1,0 +1,14 @@
+{
+    "base:blue_lamp": "none",
+    "base:grass": "none",
+    "base:grass_block": "base:dirt.item",
+    "base:green_lamp": "none",
+    "base:lamp": "none",
+    "base:leaves": "none",
+    "base:lightbulb": "none",
+    "base:red_lamp": "none",
+    "base:stone": "voxelcraft:cobblestone.item",
+    "base:water": "none",
+    "voxelcraft:coal_ore": "voxelcraft:coal",
+    "voxelcraft:crafting_table": "voxelcraft:crafting_table.item"
+}

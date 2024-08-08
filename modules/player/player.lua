@@ -67,6 +67,21 @@ vplayer.kill = function ()
     drop_inventory()
 end
 
+vplayer.choose_spawn = function ()
+    local x, y, z = player.get_spawnpoint(0)
+    for new_y = 256, 1, -1 do
+        if block.get(x, new_y, z) ~= block.index("core:air") then
+            y = new_y + 1
+        end
+    end
+    player.set_spawnpoint(0, x, y, z)
+end
+
+vplayer.tp_to_spawn = function ()
+    local x, y, z = player.get_spawnpoint(0)
+    player.set_pos(0, x, y, z)
+end
+
 vplayer.respawn = function ()
     vplayer.tp_to_spawn()
     hud.close("voxelcraft:died_menu")

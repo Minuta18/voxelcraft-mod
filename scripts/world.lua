@@ -23,3 +23,7 @@ function on_world_tick()
     voxelcraft_core.compatibility.world_events.on_world_tick()
     update_player()
 end
+
+function on_world_save()
+    voxelcraft_core.compatibility.world_events.on_world_save()
+end

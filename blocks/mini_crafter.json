@@ -1,0 +1,12 @@
+{
+    "texture-faces": [
+        "furnace_side",
+        "furnace_side",
+        "furnace_top",
+        "furnace_top",
+        "furnace_side",
+        "furnace_front"
+    ],
+    "inventory-size": 5,
+    "ui-layout": "voxelcraft:crafting_table_inventory"
+}
