@@ -20,6 +20,6 @@ block_operations.destroy_block = function (x, y, z)
     if block_id == block.index("core:air") then
         return
     end
-    block.set(x, y, z, block.index("core:air"))
+    block.destruct(x, y, z, 0)
     block_operations.spawn_mini_block(block_id, 1, {x, y, z})
 end
