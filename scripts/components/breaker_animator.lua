@@ -49,6 +49,9 @@ function on_update()
     local current_block_max_progress = loader_api.get_hardness_by_block(
         selected_block_id
     )
+    if current_block_max_progress == nil then
+        current_block_max_progress = -1
+    end
 
     local invid, slot = player.get_inventory(0)
     local sel_item, item_count = inventory.get(invid, slot)
@@ -58,7 +61,8 @@ function on_update()
 
     if info ~= nil then
         if has_value(info.materials, block.material(selected_block_id)) then
-            progress_speed = progress_speed * info.speed
+            current_block_max_progress = 
+                current_block_max_progress / info.speed
         end
     end
 

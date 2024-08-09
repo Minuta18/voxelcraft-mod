@@ -20,10 +20,18 @@ gamemode.set_gamemode = function (gm)
         hud.close("voxelcraft:health_bar")
         hud.close("voxelcraft:hunger_bar")
         hud.close("voxelcraft:inventory_blocker")
+
+        for key, entity in pairs(entities.get_all()) do
+            local defname = entity:def_name()
+            if defname == "voxelcraft:breaker" then
+                entity:despawn()
+            end
+        end
     else
         hud.open_permanent("voxelcraft:health_bar")
         hud.open_permanent("voxelcraft:hunger_bar")    
         hud.open_permanent("voxelcraft:inventory_blocker")
+        entities.spawn("voxelcraft:breaker", {0, 0, 0})
     end
     return "ok"
 end

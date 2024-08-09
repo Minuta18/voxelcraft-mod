@@ -15,7 +15,7 @@ world_events = {}
 world_events.kill_all_breakers = function ()
     for key, entity in pairs(entities.get_all()) do
         logger.debug(entity:def_name())
-        if entity:get_defname() == "voxelcraft:breaker" then
+        if entity:def_name() == "voxelcraft:breaker" then
             entity:despawn()
         end
     end
