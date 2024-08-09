@@ -2,9 +2,7 @@ require "voxelcraft:logger/logger"
 require "voxelcraft:health/health"
 
 local player_hunger = 20
-local damaged = 0;
 local time_to_health_addition = 60;
-local max_hunger_speed = 2;
 local max_power = 3000;
 local power_before_hunger = max_power;
 
