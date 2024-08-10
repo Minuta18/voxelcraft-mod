@@ -38,7 +38,7 @@ block_operations.get_rotation_by_normal = function (normal)
 end
 
 block_operations.place_block = function (
-    target_block_id, target_block_pos, 
+    target_block_pos, 
     normal, player_id
 )
     local invid, slot = player.get_inventory(player_id)

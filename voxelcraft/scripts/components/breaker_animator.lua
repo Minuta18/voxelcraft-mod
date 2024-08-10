@@ -120,5 +120,5 @@ function on_used()
         .interact_block(iendpoint)
 
     voxelcraft_core.compatibility.block_operations
-        .place_block(block, iendpoint, normal, pid)
+        .place_block(iendpoint, normal, pid)
 end

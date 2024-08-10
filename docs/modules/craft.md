@@ -1,4 +1,4 @@
-## Модуль `voxelcraft:gamemode/gamemode`
+## Модуль `voxelcraft:crafting/init`
 
 ### crafting
 
@@ -47,3 +47,109 @@ crafting.check_craft(slot_list, crafter_type)
 
 > ![IMPORTANT]
 > На данный момент все значения количества элемента равны 1. Это будет исправлено в будущих версиях.
+
+### Класс Furnace
+
+```lua
+local furnace = Furnace(
+    fur_uid: int,
+    max_progress: int,
+    on_change_callback: function,
+    reset_checker: function,
+    on_fuel_end_callback: function,
+    on_end_callback: function,
+)
+```
+
+Инициализирует печку.
+
+Аргументы:
+ - `fur_uid: int`: уникальный идентификатор печки.
+ - `max_progress: int`: длительность готовки печки в тиках.
+ - `on_change_callback: function`: функция вызываемая в случае остановки ил продолжения готовки. `fur_uid: int` и `action: "started"|"stopped"` передаются в качестве аргументов.
+ - `reset_checker: function`: функция, вызываемая каждый тик. Если возвращает `true`, то печь приостанавливает готовку. В противном случае функция должна вернуть `false`. `fur_uid` и `craft_result` (результат крафта, см. ниже) передаются в качестве аргументов.
+ - `on_fuel_end_callback: function`: функция вызываемая в случае нехватки топлива. `fur_uid` передаётся в качестве аргумента. 
+ - `on_end_callback: function`: Функция вызываемая после конца готовки. `fur_uid` и `craft_result` (результат крафта, см. ниже) передаются в качестве аргументов.
+
+```lua
+Furnace:get_fuel()
+```
+
+Возвращает количество топлива, хранящегося в печке.
+
+```lua
+Furnace:set_fuel(fuel: int)
+```
+
+Устанавливает количество топлива в печке.
+
+```lua
+Furnace:add_fuel(fuel: int)
+```
+
+Прибавляет топливо к уже имеющемуся в печке.
+
+```lua
+Furnace:get_progress()
+```
+
+Возвращает количество тиков до конца готовки.
+
+```lua
+Furnace:set_progress(progress: int)
+```
+
+Устанавливает количество тиков до конца готовки.
+
+```lua
+Furnace:start_bake(craft_result: table)
+```
+
+Начинает готовку.
+
+Аргументы:
+ - `craft_result: table` - таблица из 2 элементов, где первый элемент - предмет получаемый в результате крафта, а второй - его количество.
+
+```lua
+Furnace:end_bake()
+```
+
+Завершает готовку.
+
+```lua
+Furnace:update()
+```
+
+Обновляет печку.
+
+### furnaces
+
+```lua
+furnaces.Furnace
+```
+
+класс Furnace.
+
+```lua
+furnaces.FurnaceStorage
+```
+
+Хранилище для всех печек.
+
+```lua
+furnaces.FurnaceStorage.get(fid: int)
+```
+
+Возвращает печку из хранилища по уникальному идентификатору.
+
+```lua
+furnaces.FurnaceStorage.set(fid: int, furnace: Furnace)
+```
+
+Устанавливает печку по уникальному идентификатору.
+
+```lua
+furnaces.FurnaceStorage.update_all()
+```
+
+Обновляет все печки в хранилище.

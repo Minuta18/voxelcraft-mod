@@ -95,9 +95,10 @@ function start_bake(invid, result)
     if furnace == nil then
         furnaces.FurnaceStorage.set(invid,
             furnaces.Furnace:new(
-                invid, on_change_callback, 
-                on_end_callback, reset_checker,
-                FURNACE_MAX_PROGRESS, on_fuel_end_callback
+                invid, FURNACE_MAX_PROGRESS, 
+                on_change_callback, 
+                reset_checker, on_fuel_end_callback,
+                on_end_callback
             )
         )
         furnace = furnaces.FurnaceStorage.get(invid)

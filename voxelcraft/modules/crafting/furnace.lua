@@ -3,8 +3,8 @@ require "voxelcraft:logger/logger"
 Furnace = {}
 
 function Furnace:new(
-        invid, on_change_callback, on_end_callback,
-        reset_checker, max_progress, on_fuel_end_callback
+        invid, max_progress, on_change_callback, 
+        reset_checker, on_fuel_end_callback, on_end_callback
     )
     local obj = {}
     obj.fuel = -1

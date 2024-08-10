@@ -1,14 +1,14 @@
 {
-    "base:blue_lamp": "none",
-    "base:grass": "none",
+    "base:blue_lamp": "core:empty",
+    "base:grass": "core:empty",
     "base:grass_block": "base:dirt.item",
-    "base:green_lamp": "none",
-    "base:lamp": "none",
-    "base:leaves": "none",
-    "base:lightbulb": "none",
-    "base:red_lamp": "none",
+    "base:green_lamp": "core:empty",
+    "base:lamp": "core:empty",
+    "base:leaves": "core:empty",
+    "base:lightbulb": "core:empty",
+    "base:red_lamp": "core:empty",
     "base:stone": "voxelcraft:cobblestone.item",
-    "base:water": "none",
+    "base:water": "core:empty",
     "voxelcraft:coal_ore": "voxelcraft:coal",
     "voxelcraft:crafting_table": "voxelcraft:crafting_table.item"
 }
