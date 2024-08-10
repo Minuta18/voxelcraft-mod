@@ -37,6 +37,8 @@ https://github.com/Minuta18/voxelcraft-mod/releases - релизы
 
 https://voxelworld.ru/mods/53 - страница мода на voxelworld.ru
 
+https://github.com/Minuta18/voxelcraft-mod/blob/main/docs/index.md - документация
+
 ## **>** Особые благодарности  
 *@VulpesDust* - за Health and spawn system - я использовал некоторые наработки 
 из этого мода
