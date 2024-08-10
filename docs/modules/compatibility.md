@@ -25,9 +25,6 @@ block_operations.get_rotation_by_normal(normal: vec3)
 
 Возвращает поворот по нормали.
 
-> ![INFO]
-> Эта функция не дописана и всегда возвращает 0
-
 ```lua
 block_operations.place_block(
     target_block_pos: vec3,

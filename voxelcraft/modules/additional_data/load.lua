@@ -38,10 +38,8 @@ loader.load_drops = function (table, pack_name)
     local count = 0
     for k, v in pairs(table) do
         if type(v) == "string" then
-            if v ~= "core:empty" then
-                drops[k] = v
-                count = count + 1
-            end
+            drops[k] = v
+            count = count + 1
         end
     end
     logger.info(string.format(

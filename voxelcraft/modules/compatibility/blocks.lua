@@ -23,18 +23,65 @@ block_operations.destroy_block = function (x, y, z)
     local drop = loader_api.get_drops_by_block(block.name(block_id))
     block.destruct(x, y, z, 0)
     if drop == nil then
-        block_operations.spawn_mini_block(block_id, 1, {x, y, z})
+        if block.name(block_id) ~= nil then
+            block_operations.spawn_mini_block(
+                item.index(block.name(block_id) .. ".item"), 1, {x, y, z}
+            )
+        end
         return 
     end
-    if drop ~= "none" then
+    if drop ~= "core:empty" then
         block_operations.spawn_mini_block(item.index(drop), 1, {x, y, z})
     end
 end
 
-block_operations.get_rotation_by_normal = function (normal)
-    -- TODO
-    local state = 0
-    return state
+function dump(o)
+    if type(o) == 'table' then
+       local s = '{ '
+       for k,v in pairs(o) do
+          if type(k) ~= 'number' then k = '"'..k..'"' end
+          s = s .. '['..k..'] = ' .. dump(v) .. ','
+       end
+       return s .. '} '
+    else
+       return tostring(o)
+    end
+ end 
+
+block_operations.get_rotation_by_normal = function (block_id, normal)
+    if block.get_rotation_profile(block_id) == "pipe" then
+        if normal[1] == 1 then
+            return 3
+        elseif normal[1] == -1 then
+            return 1
+        elseif normal[3] == 1 then
+            return 0
+        elseif normal[3] == -1 then
+            return 2
+        elseif normal[2] == 1 then
+            return 4
+        elseif normal[2] == -1 then
+            return 5
+        end
+        return 0
+    end
+    if block.get_rotation_profile(block_id) == "pane" then
+        if normal[1] == 1 then
+            return 1
+        elseif normal[1] == -1 then
+            return 3
+        elseif normal[3] == 1 then
+            return 0
+        elseif normal[3] == -1 then
+            return 2
+        elseif normal[2] == 1 then
+            return 1
+        elseif normal[2] == -1 then
+            return 1
+        end
+        return 0
+    end
+    return 0
 end
 
 block_operations.place_block = function (
@@ -56,10 +103,12 @@ block_operations.place_block = function (
         cords = vec3.add(cords, normal)
     end
 
+    local block_ind = block.index(item.name(selected_item):gsub("%.item", ""))
+
     block.place(
-        cords[1], cords[2], cords[3],
-        block.index(item.name(selected_item):gsub("%.item", "")),
-        block_operations.get_rotation_by_normal(), player_id
+        cords[1], cords[2], cords[3], block_ind,
+        block_operations.get_rotation_by_normal(block_ind, normal), 
+        player_id
     )
 end
 

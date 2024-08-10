@@ -10,11 +10,10 @@ local max_hunger_speed = 2;
 local died_pos = {0, 0, 0}
 local died_rot = {0, 0, 0}
 
-local function drop_inventory()
+vplayer = {}
+
+vplayer.drop_inventory = function()
     -- Copied from base package
-    if hud.is_paused() or hud.is_inventory_open() then
-        return
-    end
     local pid = hud.get_player()
     local invid, slot = player.get_inventory(pid)
     for selected_slot = 0, 39, 1 do
@@ -41,8 +40,6 @@ local function drop_inventory()
     end
 end
 
-vplayer = {}
-
 vplayer.apply_fall_damage = function (fall_blocks)
     voxelcraft_core.logger.debug(string.format(
         "Player felt from %s blocks", fall_blocks
@@ -64,7 +61,7 @@ vplayer.kill = function ()
     menu_opened = true
     died_pos[1], died_pos[2], died_pos[3] = player.get_pos()
     died_rot[1], died_rot[2], died_rot[3] = player.get_rot()
-    drop_inventory()
+    vplayer.drop_inventory()
 end
 
 vplayer.choose_spawn = function ()
