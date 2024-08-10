@@ -7,3 +7,7 @@
 - [gamemode/gamemode](./modules/gamemode.md)
 - [crafting/init](./modules/craft.md)
 - [compatibility/init](./modules/compatibility.md)
+
+## Гайды
+
+- [интеграция мода с Voxelcraft](./guides/creating-mod.md)
