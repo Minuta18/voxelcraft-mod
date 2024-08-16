@@ -1,5 +1,6 @@
 ---@diagnostic disable: lowercase-global
 require "voxelcraft:logger/logger"
+require "voxelcraft:loot_tables/loot_table"
 
 loader = {}
 
@@ -7,6 +8,7 @@ local fuels = {}
 local hardness = {}
 local drops = {}
 local tools = {}
+local loot_tables = {}
 
 loader.load_fuels = function (table, pack_name)
     local count = 0
@@ -37,13 +39,13 @@ end
 loader.load_drops = function (table, pack_name)
     local count = 0
     for k, v in pairs(table) do
+        drops[k] = {}
         if type(v) == "string" then
-            drops[k] = v
-            -- drops[k].type = "single_drop"
-            -- drops[k].content = v
+            drops[k].type = "single_drop"
+            drops[k].content = v
         elseif type(v) == "table" then
-            -- drops[k].type = "loot_table"
-            -- drops[k].content = v["loot_table"]
+            drops[k].type = "loot_table"
+            drops[k].content = v["loot_table"]
         end
         count = count + 1
     end
@@ -85,6 +87,29 @@ loader.load_file = function(filename, pack_, loadfunc)
     end
 end
 
+loader.load_loot_tables = function (pack_name)
+    local filename = pack_name .. ":additional_data/loot_tables.json" 
+    if file.exists(filename) then
+        local count = 0
+        local data = json.parse(file.read(filename))
+
+        for ind, loot_table in ipairs(data.loot_tables) do
+            local loot_table_filename = 
+                pack_name .. ":loot_tables/" .. loot_table .. ".json"
+            if file.exists(loot_table_filename) then
+                loot_tables[pack_name .. ":" .. loot_table] = json.parse(
+                    file.read(loot_table_filename)
+                )
+                count = count + 1
+            end
+        end
+
+        logger.info(string.format(
+            "Loaded %d loot tables from pack %s", count, pack_name
+        ))
+    end
+end
+
 loader.load_additional_data = function ()
     logger.info("Loading additional data. Found packs:")
     local packs = pack.get_installed()
@@ -92,6 +117,8 @@ loader.load_additional_data = function ()
         logger.info("- " .. pack_)
     end
     for ind, pack_ in ipairs(packs) do
+        loader.load_loot_tables(pack_)
+
         logger.debug(pack_ .. ":additional_data/fuels.json")
         loader.load_file("fuels.json", pack_, loader.load_fuels)
 
@@ -117,7 +144,29 @@ loader_api.get_hardness_by_block = function (str_id)
 end
 
 loader_api.get_drops_by_block = function (str_id)
-    return drops[str_id]
+    local drop = drops[str_id]
+    if drop == nil then
+        return {}
+    end
+    if drop.type == nil then
+        return {}
+    elseif drop.type == "single_drop" then
+        local result = {}
+        result[1] = {drop.content, 1}
+        return result
+    elseif drop.type == "loot_table" then
+        if loot_tables[drop.content] == nil then
+            logger.warning(
+                "Unable to find loot table " .. drop.content
+            )
+            logger.debug(dump(loot_tables))
+            return {}
+        end
+        local loot_table = LootTable:new(loot_tables[drop.content])
+        local result = loot_table:get_result()
+        return result
+    end
+    return {}
 end
 
 loader_api.get_info_by_tool = function (str_id)

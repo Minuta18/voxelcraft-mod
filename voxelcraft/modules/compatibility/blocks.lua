@@ -20,18 +20,15 @@ block_operations.destroy_block = function (x, y, z)
     if block_id == block.index("core:air") then
         return
     end
-    local drop = loader_api.get_drops_by_block(block.name(block_id))
+    local drops = loader_api.get_drops_by_block(block.name(block_id))
     block.destruct(x, y, z, 0)
-    if drop == nil then
-        if block.name(block_id) ~= nil then
+
+    for _, drop in ipairs(drops) do
+        if drop[1] ~= "core:empty" then
             block_operations.spawn_mini_block(
-                item.index(block.name(block_id) .. ".item"), 1, {x, y, z}
-            )
+                item.index(drop[1]), drop[2], {x, y, z}
+            )            
         end
-        return 
-    end
-    if drop ~= "core:empty" then
-        block_operations.spawn_mini_block(item.index(drop), 1, {x, y, z})
     end
 end
 
