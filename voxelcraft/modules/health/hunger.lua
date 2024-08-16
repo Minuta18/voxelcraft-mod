@@ -50,9 +50,11 @@ hunger.update = function ()
     end
     if time_to_health_addition == 0 then
         if health.get_health() < 20 and hunger.get_hunger() > 14 then
-            health.set_health(health.get_health() + 1)
-            health.set_damage()
-            hunger.set_hunger(hunger.get_hunger() - 2)
+            if not vplayer.is_dead() then
+                health.set_health(health.get_health() + 1)
+                health.set_damage()
+                hunger.set_hunger(hunger.get_hunger() - 2)
+            end
         end
         if hunger.get_hunger() == 0 then
             health.damage(3)
