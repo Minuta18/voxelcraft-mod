@@ -89,7 +89,8 @@ function on_update()
     then
         set_texture("blocks:breaking5")
     end
-    if progress >= current_block_max_progress then
+    if progress >= current_block_max_progress and 
+        current_block_max_progress ~= -1 then
         progress = 0
         voxelcraft_core.compatibility.block_operations
             .destroy_block(
