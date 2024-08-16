@@ -163,10 +163,10 @@ end
 loader_api.get_drops_by_block = function (str_id)
     local drop = drops[str_id]
     if drop == nil then
-        return {}
+        return nil
     end
     if drop.type == nil then
-        return {}
+        return nil
     elseif drop.type == "single_drop" then
         local result = {}
         result[1] = {drop.content, 1}
