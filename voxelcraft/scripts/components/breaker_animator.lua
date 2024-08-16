@@ -89,14 +89,14 @@ function on_update()
     then
         set_texture("blocks:breaking5")
     end
+
     if progress >= current_block_max_progress and 
-        current_block_max_progress ~= -1 then
+        current_block_max_progress > -2 then
         progress = 0
         voxelcraft_core.compatibility.block_operations
             .destroy_block(
                 selected_block[1], selected_block[2], selected_block[3]
             )
-        -- find_selected_block()
         selected_block = {0, 0, 0}
         tsf:set_pos({0.5, 0.5, 0.5}) 
     end

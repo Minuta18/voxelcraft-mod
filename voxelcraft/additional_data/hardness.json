@@ -1,5 +1,5 @@
 {
-    "base:bazalt": -1,
+    "base:bazalt": -2,
     "base:blue_lamp": 20,
     "base:brick": 100,
     "base:dirt": 20,
@@ -20,7 +20,7 @@
     "base:sand": 15,
     "base:stone": 100,
     "base:torch": 5,
-    "base:water": -1,
+    "base:water": -2,
     "base:wood": 20,
     "base:wooden_door": 20,
     "voxelcraft:chest": 20,

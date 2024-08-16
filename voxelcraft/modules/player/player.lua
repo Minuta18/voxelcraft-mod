@@ -1,5 +1,6 @@
 require "voxelcraft:logger/logger"
 require "voxelcraft:gamemode/gamemode"
+require "voxelcraft:config/config"
 
 local is_falling = false
 local max_y_point = -1
@@ -44,9 +45,12 @@ vplayer.apply_fall_damage = function (fall_blocks)
     voxelcraft_core.logger.debug(string.format(
         "Player felt from %s blocks", fall_blocks
     ))
-    if (fall_blocks > 4) then
-        voxelcraft_core.hunger.reset_time()
-        voxelcraft_core.health.damage(fall_blocks - 3)
+
+    if (vconfig:get("player.fall_damage.enabled")) then
+        if (fall_blocks > vconfig:get("player.fall_damage.min_blocks")) then
+            voxelcraft_core.hunger.reset_time()
+            voxelcraft_core.health.damage(fall_blocks - 3)
+        end
     end
 end
 
@@ -66,12 +70,18 @@ end
 
 vplayer.choose_spawn = function ()
     local x, y, z = player.get_spawnpoint(0)
-    for new_y = 256, 1, -1 do
-        if block.get(x, new_y, z) ~= block.index("core:air") then
-            y = new_y + 1
+    for new_y = 255, 1, -1 do
+        local block_id = block.get(x, new_y, z)
+        if block_id ~= block.index("core:air") and 
+            block_id ~= block.index("base:water") and
+            block_id ~= -1
+        then
+            logger.debug(block.get(x, new_y, z))
+            logger.debug(block.index("core:air"))
+            player.set_spawnpoint(0, x, new_y + 1, z)
+            break
         end
     end
-    player.set_spawnpoint(0, x, y, z)
 end
 
 vplayer.tp_to_spawn = function ()

@@ -1,4 +1,6 @@
 require "voxelcraft:logger/logger"
+require "voxelcraft:config/config"
+
 -- Furnace class
 Furnace = {}
 
@@ -9,6 +11,7 @@ function Furnace:new(
     local obj = {}
     obj.fuel = -1
     obj.progress = 0
+    obj.fuel_speed = 1
     obj.is_running = false
     obj.is_running_prev = false -- Is running in previous state
                                 -- It uses for "started" event
@@ -68,7 +71,9 @@ function Furnace:new(
                 obj.on_change_callback(invid, "stopped")
             end
             if obj.is_running then
-                obj.fuel = obj.fuel - 1
+                obj.fuel = obj.fuel - obj.fuel_speed * vconfig:get(
+                    "furnaces.speed_modifier"
+                ) 
                 obj.progress = obj.progress + 1
                 obj.progress = math.min(obj.progress, obj.max_progress)
                 if obj.progress == obj.max_progress then

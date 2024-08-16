@@ -4,7 +4,9 @@
     "base:grass_block": "base:dirt.item",
     "base:green_lamp": "core:empty",
     "base:lamp": "core:empty",
-    "base:leaves": "core:empty",
+    "base:leaves": {
+        "loot_table": "voxelcraft:apple_drop"
+    },
     "base:lightbulb": "core:empty",
     "base:red_lamp": "core:empty",
     "base:stone": "voxelcraft:cobblestone.item",

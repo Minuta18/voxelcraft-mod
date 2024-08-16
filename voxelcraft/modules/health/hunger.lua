@@ -1,9 +1,14 @@
 require "voxelcraft:logger/logger"
 require "voxelcraft:health/health"
+require "voxelcraft:config/config"
 
-local player_hunger = 20
-local time_to_health_addition = 60;
-local max_power = 3000;
+local player_hunger = vconfig:get("health.max_hunger")
+local time_to_health_addition = vconfig:get(
+    "health.player_energy.health_addition_length"
+);
+local max_power = vconfig:get(
+    "health.player_energy.max_energy"
+);
 local power_before_hunger = max_power;
 
 hunger = {}
@@ -13,11 +18,15 @@ hunger.get_hunger = function ()
 end
 
 hunger.set_hunger = function (hunger)
-    player_hunger = hunger
+    player_hunger = math.min(hunger, vconfig:get(
+        "health.max_hunger"
+    ))
 end
 
 hunger.reset_time = function ()
-    time_to_health_addition = 60;
+    time_to_health_addition = vconfig:get(
+        "health.player_energy.health_addition_length"
+    );
 end
 
 hunger.check_power = function ()
@@ -37,14 +46,17 @@ hunger.check_power = function ()
 end
 
 hunger.update = function ()
+    -- TODO: Refactor this func to avoid using magic unmbers
     if time_to_health_addition > 0 then
         time_to_health_addition = time_to_health_addition - 1;
     end
     if time_to_health_addition == 0 then
         if health.get_health() < 20 and hunger.get_hunger() > 14 then
-            health.set_health(health.get_health() + 1)
-            health.set_damage()
-            hunger.set_hunger(hunger.get_hunger() - 2)
+            if not vplayer.is_dead() then
+                health.set_health(health.get_health() + 1)
+                health.set_damage()
+                hunger.set_hunger(hunger.get_hunger() - 2)
+            end
         end
         if hunger.get_hunger() == 0 then
             health.damage(3)
