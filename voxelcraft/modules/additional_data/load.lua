@@ -38,9 +38,14 @@ loader.load_drops = function (table, pack_name)
     local count = 0
     for k, v in pairs(table) do
         if type(v) == "string" then
-            drops[k] = v
-            count = count + 1
+            drops[k] = {}
+            drops[k].type = "single_drop"
+            drops[k].content = v
+        elseif type(v) == "table" then
+            drops[k].type = "loot_table"
+            drops[k].content = v["loot_table"]
         end
+        count = count + 1
     end
     logger.info(string.format(
         "Loaded %d drop values from pack %s", count, pack_name
