@@ -18,7 +18,9 @@ hunger.get_hunger = function ()
 end
 
 hunger.set_hunger = function (hunger)
-    player_hunger = hunger
+    player_hunger = math.min(hunger, vconfig:get(
+        "health.max_hunger"
+    ))
 end
 
 hunger.reset_time = function ()

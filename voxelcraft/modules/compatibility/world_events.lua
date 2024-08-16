@@ -6,9 +6,14 @@ require "voxelcraft:compatibility/health_bar"
 require "voxelcraft:player/init"
 require "voxelcraft:compatibility/saver"
 require "voxelcraft:config/config"
+require "voxelcraft:compatibility/eat"
 
 local blocks_initialized = false
 local hud_opened = false
+
+input.add_callback("player.build", function()
+    eat_utils.eat(0)
+end)
 
 ---@diagnostic disable-next-line: lowercase-global
 world_events = {}
@@ -54,6 +59,7 @@ world_events.on_world_tick = function ()
     hunger.check_power()
     health_bar.display_health()
     hunger_bar.display_hunger()
+    eat_utils.update()
 
     if gamemode.get_gamemode() == "survival" then
         vplayer.noclip_blocker()

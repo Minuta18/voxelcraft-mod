@@ -8,6 +8,7 @@ local fuels = {}
 local hardness = {}
 local drops = {}
 local tools = {}
+local food = {}
 local loot_tables = {}
 
 loader.load_fuels = function (table, pack_name)
@@ -33,6 +34,19 @@ loader.load_hardness = function (table, pack_name)
     end
     logger.info(string.format(
         "Loaded %d hardness values from pack %s", count, pack_name
+    ))
+end
+
+loader.load_food = function (table, pack_name)
+    local count = 0
+    for k, v in pairs(table) do
+        if type(v) == "number" then
+            food[k] = v
+            count = count + 1
+        end
+    end
+    logger.info(string.format(
+        "Loaded %d food values from pack %s", count, pack_name
     ))
 end
 
@@ -122,6 +136,9 @@ loader.load_additional_data = function ()
         logger.debug(pack_ .. ":additional_data/fuels.json")
         loader.load_file("fuels.json", pack_, loader.load_fuels)
 
+        logger.debug(pack_ .. ":additional_data/food.json")
+        loader.load_file("food.json", pack_, loader.load_food)
+
         logger.debug(pack_ .. ":additional_data/hardness.json")
         loader.load_file("hardness.json", pack_, loader.load_hardness)
 
@@ -173,4 +190,6 @@ loader_api.get_info_by_tool = function (str_id)
     return tools[str_id]
 end
 
-
+loader_api.get_food_by_item = function (str_id)
+    return food[str_id]
+end

@@ -89,11 +89,7 @@ function on_update()
     then
         set_texture("blocks:breaking5")
     end
-    logger.debug(string.format(
-        "%s \t %s",
-        progress,
-        current_block_max_progress
-    ))
+
     if progress >= current_block_max_progress and 
         current_block_max_progress > -2 then
         progress = 0
