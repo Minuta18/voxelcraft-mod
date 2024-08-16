@@ -1,9 +1,14 @@
 require "voxelcraft:logger/logger"
 require "voxelcraft:health/health"
+require "voxelcraft:config/config"
 
-local player_hunger = 20
-local time_to_health_addition = 60;
-local max_power = 3000;
+local player_hunger = vconfig:get("health.max_hunger")
+local time_to_health_addition = vconfig:get(
+    "health.player_energy.health_addition_length"
+);
+local max_power = vconfig:get(
+    "health.player_energy.max_energy"
+);
 local power_before_hunger = max_power;
 
 hunger = {}
@@ -17,7 +22,9 @@ hunger.set_hunger = function (hunger)
 end
 
 hunger.reset_time = function ()
-    time_to_health_addition = 60;
+    time_to_health_addition = vconfig:get(
+        "health.player_energy.health_addition_length"
+    );
 end
 
 hunger.check_power = function ()
@@ -37,6 +44,7 @@ hunger.check_power = function ()
 end
 
 hunger.update = function ()
+    -- TODO: Refactor this func to avoid using magic unmbers
     if time_to_health_addition > 0 then
         time_to_health_addition = time_to_health_addition - 1;
     end

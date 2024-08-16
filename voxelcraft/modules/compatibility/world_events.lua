@@ -5,6 +5,7 @@ require "voxelcraft:additional_data/init"
 require "voxelcraft:compatibility/health_bar"
 require "voxelcraft:player/init"
 require "voxelcraft:compatibility/saver"
+require "voxelcraft:config/config"
 
 local blocks_initialized = false
 local hud_opened = false
@@ -22,11 +23,11 @@ world_events.kill_all_breakers = function ()
 end
 
 world_events.on_world_open = function ()
-    local loaded_data = load_data()
-
     logger.info("voxelcraft.modules.compatibility.on_world_open() called")
-    health_bar.setup_bar(20)
-    hunger_bar.setup_bar(20)
+
+    local loaded_data = load_data()
+    health_bar.setup_bar(vconfig:get("health.max_health"))
+    hunger_bar.setup_bar(vconfig:get("health.max_hunger"))
     health.set_health(loaded_data["health"])
     hunger.set_hunger(loaded_data["hunger"])
     math.randomseed(os.time())

@@ -1,5 +1,6 @@
 require "voxelcraft:logger/logger"
 require "voxelcraft:gamemode/gamemode"
+require "voxelcraft:config/config"
 
 local is_falling = false
 local max_y_point = -1
@@ -44,9 +45,12 @@ vplayer.apply_fall_damage = function (fall_blocks)
     voxelcraft_core.logger.debug(string.format(
         "Player felt from %s blocks", fall_blocks
     ))
-    if (fall_blocks > 4) then
-        voxelcraft_core.hunger.reset_time()
-        voxelcraft_core.health.damage(fall_blocks - 3)
+
+    if (vconfig:get("player.fall_damage.enabled")) then
+        if (fall_blocks > vconfig:get("player.fall_damage.min_blocks")) then
+            voxelcraft_core.hunger.reset_time()
+            voxelcraft_core.health.damage(fall_blocks - 3)
+        end
     end
 end
 

@@ -1,0 +1,28 @@
+{
+    "loot_tables": {
+        "default_pool_probability": 1.0
+    },
+    "health": {
+        "default_player_health": 20,
+        "default_player_hunger": 20,
+        "max_health": 20,
+        "max_hunger": 20,
+        "energy_modifier": 1.0,
+        "player_energy": {
+            "health_addition_length": 60,
+            "max_energy": 3000
+        },
+        "damage": {
+            "animation_length": 5
+        }
+    },
+    "player": {
+        "fall_damage": {
+            "enabled": true,
+            "min_blocks": 4
+        }
+    },
+    "furnaces": {
+        "speed_modifier": 1.0
+    }
+}

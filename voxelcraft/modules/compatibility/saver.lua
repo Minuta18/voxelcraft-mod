@@ -1,4 +1,4 @@
-local data_file = "user:worlds/voxelcraft_data.json"
+local data_file = pack.data_file("voxelcraft", "voxelcraft_data.json")
 
 function save_data(data)
     data["first_launch"] = false
