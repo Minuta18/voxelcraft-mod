@@ -12,9 +12,11 @@
         "player_energy": {
             "health_addition_length": 60,
             "max_energy": 3000
-        },
+        }
+    },
+    "visuals": {
         "damage": {
-            "animation_length": 5
+            "animation_speed": 5
         }
     },
     "player": {

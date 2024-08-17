@@ -29,11 +29,14 @@ end
 
 world_events.on_world_open = function ()
     logger.info("voxelcraft.modules.compatibility.on_world_open() called")
-
     local loaded_data = load_data()
-    health_bar.setup_bar(vconfig:get("health.max_health"))
+
+    health_storage:set(0, VoxelcraftHealthSystem:new(
+        vconfig:get("health.max_health"),
+        loaded_data["health"]
+    ))
+
     hunger_bar.setup_bar(vconfig:get("health.max_hunger"))
-    health.set_health(loaded_data["health"])
     hunger.set_hunger(loaded_data["hunger"])
     math.randomseed(os.time())
     loader.load_additional_data()

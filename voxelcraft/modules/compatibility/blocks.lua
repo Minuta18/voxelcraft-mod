@@ -29,6 +29,7 @@ block_operations.destroy_block = function (x, y, z)
         ) 
     end
 
+    ---@diagnostic disable-next-line: param-type-mismatch
     for _, drop in ipairs(drops) do
         if drop[1] ~= "core:empty" then
             block_operations.spawn_mini_block(
