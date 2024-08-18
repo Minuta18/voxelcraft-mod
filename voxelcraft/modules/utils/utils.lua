@@ -1,5 +1,20 @@
-function extended(child, parent)
-    setmetatable(child,{__index = parent}) 
+function create_class(base)
+    local class = {}
+    class.__index = base
+    
+    if base then
+        setmetatable(class, {__index = base})
+    end
+
+    function class:new(...)
+        local inst = setmetatable({}, class)
+        if inst.init then
+            inst:init(...)
+        end
+        return inst
+    end
+
+    return class
 end
 
 PlayerDataStore = {}

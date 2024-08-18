@@ -9,7 +9,6 @@ require "voxelcraft:config/config"
 require "voxelcraft:compatibility/eat"
 
 local blocks_initialized = false
-local hud_opened = false
 
 input.add_callback("player.build", function()
     eat_utils.eat(0)
@@ -27,14 +26,22 @@ world_events.kill_all_breakers = function ()
     end
 end
 
+world_events.setup_health_system_for_player = function (
+    player_id, max_health, current_health
+)
+    health_system:register_system(VoxelcraftHealthSystem)
+    health_storage:set(player_id, VoxelcraftHealthSystem:new(
+        player_id, max_health, current_health
+    ))
+end
+
 world_events.on_world_open = function ()
     logger.info("voxelcraft.modules.compatibility.on_world_open() called")
     local loaded_data = load_data()
 
-    health_storage:set(0, VoxelcraftHealthSystem:new(
-        vconfig:get("health.max_health"),
-        loaded_data["health"]
-    ))
+    world_events.setup_health_system_for_player(
+        0, vconfig:get("max_health"), loaded_data["health"]
+    )
 
     hunger_bar.setup_bar(vconfig:get("health.max_hunger"))
     hunger.set_hunger(loaded_data["hunger"])
