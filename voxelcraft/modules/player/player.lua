@@ -1,6 +1,7 @@
 require "voxelcraft:logger/logger"
 require "voxelcraft:gamemode/gamemode"
 require "voxelcraft:config/config"
+require "voxelcraft:health/init"
 
 local is_falling = false
 local max_y_point = -1
@@ -41,15 +42,21 @@ vplayer.drop_inventory = function()
     end
 end
 
-vplayer.apply_fall_damage = function (fall_blocks)
+vplayer.apply_fall_damage = function (fall_blocks, player_id)
     voxelcraft_core.logger.debug(string.format(
         "Player felt from %s blocks", fall_blocks
     ))
 
+    local player_health = health.health_storage:get(
+        player.get_entity(player_id)
+    )
+
     if (vconfig:get("player.fall_damage.enabled")) then
         if (fall_blocks > vconfig:get("player.fall_damage.min_blocks")) then
-            voxelcraft_core.hunger.reset_time()
-            voxelcraft_core.health.damage(fall_blocks - 3)
+            -- voxelcraft_core.hunger.reset_time()
+            player_health:remove_health(fall_blocks - 3)
+            player_health:play_damage_animation()
+            player_health:play_damage_sound()
         end
     end
 end
@@ -118,9 +125,15 @@ vplayer.noclip_blocker = function ()
 end
 
 vplayer.update = function (pos, is_grounded, is_flight)
+    local player_health = health.health_storage:get(
+        player.get_entity(0)
+    )
+
     if gamemode.get_gamemode() == "survival" then
-        if voxelcraft_core.health.get_health() == 0 and not menu_opened then
-            vplayer.kill()
+        if player_health ~= nil then
+            if player_health:get_health() == 0 and not menu_opened then
+                vplayer.kill()
+            end
         end
         if is_dead then
             player.set_pos(0, died_pos[1], died_pos[2], died_pos[3])

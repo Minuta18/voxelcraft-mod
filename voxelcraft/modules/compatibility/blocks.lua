@@ -39,19 +39,6 @@ block_operations.destroy_block = function (x, y, z)
     end
 end
 
-function dump(o)
-    if type(o) == 'table' then
-       local s = '{ '
-       for k,v in pairs(o) do
-          if type(k) ~= 'number' then k = '"'..k..'"' end
-          s = s .. '['..k..'] = ' .. dump(v) .. ','
-       end
-       return s .. '} '
-    else
-       return tostring(o)
-    end
- end 
-
 block_operations.get_rotation_by_normal = function (block_id, normal)
     if block.get_rotation_profile(block_id) == "pipe" then
         if normal[1] == 1 then

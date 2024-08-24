@@ -65,11 +65,3 @@ hunger.update = function ()
     end
 end
 
-BaseHungerSystem = {}
-
--- Hunger system interface
-function BaseHungerSystem:new()
-    local public = {}
-
-        
-end

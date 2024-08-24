@@ -27,5 +27,8 @@
     },
     "furnaces": {
         "speed_modifier": 1.0
+    },
+    "saving": {
+        "filename": "voxelcraft_player_data.json"
     }
 }

@@ -1,8 +1,7 @@
 require "voxelcraft:utils/utils"
 require "voxelcraft:health/voxelcraft_health_system"
 
----@diagnostic disable-next-line: lowercase-global
-health_storage = PlayerDataStore:new()
+health = {}
 
 HealthSystem = create_class()
 
@@ -15,4 +14,7 @@ function HealthSystem:get_system()
 end
 
 ---@diagnostic disable-next-line: lowercase-global
-health_system = HealthSystem:new()
+health.health_system = HealthSystem:new()
+health.health_storage = PlayerDataStore:new()
+health.HealthSystem = HealthSystem
+health.VoxelcraftHealthSystem = VoxelcraftHealthSystem

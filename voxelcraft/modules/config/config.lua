@@ -1,16 +1,5 @@
 require "voxelcraft:logger/logger"
-
-local function split_string(inputstr, sep)
-    -- Copied from stackoverflow
-    if sep == nil then
-        sep = "%s"
-    end
-    local t = {}
-    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-        table.insert(t, str)
-    end
-    return t
-end  
+require "voxelcraft:utils/utils"
 
 local function deep_merge(t1, t2)
 	local newTable = {}

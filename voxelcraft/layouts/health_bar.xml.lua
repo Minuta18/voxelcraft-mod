@@ -11,14 +11,27 @@ end
 function on_resize()
     local window_size = gui.get_viewport()
     -- health bar size is 500x40
-    return voxelcraft_core.compatibility.health_bar.calc_health_bar_position(
-        window_size[1], window_size[2], 500, 40
-    )
+    local x = window_size[1] / 2 - 500
+    x = x - 50
+    local y = window_size[2] - 80 - 40 
+    return x, y
 end
 
 health_bar.display_health = function()
-    local player_health = voxelcraft_core.health.get_health()
-    local damaged = voxelcraft_core.health.is_damaged()
+    -- local player_health = voxelcraft_core.health.get_health()
+    -- local damaged = voxelcraft_core.health.is_damaged()
+    local player_id = 0
+    local health_system = health.health_storage:get(
+        player.get_entity(player_id)
+    )
+    
+    local player_health = 20
+    local damaged = false
+    if health_system ~= nil then
+        player_health = health_system:get_health()
+        damaged = health_system:does_animation_plays()
+    end
+    
     for heart = 1, 10, 1 do
         local heart_component = document[string.format("heart%s", heart)]
         if (player_health <= (heart - 1) * 2) then
@@ -36,7 +49,7 @@ health_bar.display_health = function()
         local heart_component = document[string.format(
             "heart-damage%s", heart
         )]
-        heart_component.visible = health.is_damaged()
+        heart_component.visible = damaged
     end
 end
 
