@@ -51,9 +51,9 @@ world_events.on_world_tick = function ()
 
     health.health_storage:update_all()
 
-    -- hunger.update()
+    hunger.update()
     furnaces.FurnaceStorage.update_all()
-    -- hunger.check_power()
+    hunger.check_power()
     health_bar.display_health()
     hunger_bar.display_hunger()
     eat_utils.update()

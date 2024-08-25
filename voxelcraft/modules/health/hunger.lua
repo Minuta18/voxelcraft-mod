@@ -47,19 +47,21 @@ end
 
 hunger.update = function ()
     -- TODO: Refactor this func to avoid using magic unmbers
+    local eid = player.get_entity()
+    local health_system = health.health_storage:get(eid)
     if time_to_health_addition > 0 then
         time_to_health_addition = time_to_health_addition - 1;
     end
     if time_to_health_addition == 0 then
-        if health.get_health() < 20 and hunger.get_hunger() > 14 then
+        if health_system:get_health() < 20 and hunger.get_hunger() > 14 then
             if not vplayer.is_dead() then
-                health.set_health(health.get_health() + 1)
-                health.set_damage()
+                health_system:set_health(health_system:get_health() + 1)
+                health_system:play_damage_animation()
                 hunger.set_hunger(hunger.get_hunger() - 2)
             end
         end
         if hunger.get_hunger() == 0 then
-            health.damage(3)
+            health_system:damage(3)
         end
         hunger.reset_time()
     end

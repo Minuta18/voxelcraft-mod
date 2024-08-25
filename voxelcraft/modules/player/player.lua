@@ -47,16 +47,19 @@ vplayer.apply_fall_damage = function (fall_blocks, player_id)
         "Player felt from %s blocks", fall_blocks
     ))
 
-    local player_health = health.health_storage:get(
-        player.get_entity(player_id)
-    )
+    local eid = player.get_entity(player_id)
+    local player_health = health.health_storage:get(eid)
 
     if (vconfig:get("player.fall_damage.enabled")) then
         if (fall_blocks > vconfig:get("player.fall_damage.min_blocks")) then
-            -- voxelcraft_core.hunger.reset_time()
-            player_health:remove_health(fall_blocks - 3)
-            player_health:play_damage_animation()
-            player_health:play_damage_sound()
+            if player_health == nil then
+                logger.warning(string.format(
+                    "Detected entity without health: eid=%s", eid
+                ))
+                return
+            end
+            voxelcraft_core.hunger.reset_time()
+            player_health:damage(fall_blocks - 3)
         end
     end
 end

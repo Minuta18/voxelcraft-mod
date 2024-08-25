@@ -11,6 +11,7 @@ voxelcraft_core = {}
 voxelcraft_core.logger = logger
 voxelcraft_core.compatibility = compatibility
 voxelcraft_core.health = health
+voxelcraft_core.hunger = hunger
 voxelcraft_core.vplayer = vplayer
 voxelcraft_core.gamemode = gamemode
 voxelcraft_core.craft = craft

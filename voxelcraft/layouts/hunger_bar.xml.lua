@@ -16,9 +16,7 @@ function on_resize()
 end
 
 hunger_bar.display_hunger = function()
-    -- local player_hunger = voxelcraft_core.hunger.get_hunger()
-    local player_hunger = 20
-    
+    local player_hunger = voxelcraft_core.hunger.get_hunger()    
     for hg = 10, 1, -1 do
         local hg_component = document[string.format("hunger%s", hg)]
         if (player_hunger <= (hg - 1) * 2) then
