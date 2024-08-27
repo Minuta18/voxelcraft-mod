@@ -13,8 +13,8 @@ function HealthSystem:get_system()
     return self.current_health_system
 end
 
----@diagnostic disable-next-line: lowercase-global
 health.health_system = HealthSystem:new()
 health.health_storage = PlayerDataStore:new()
 health.HealthSystem = HealthSystem
+health.BaseHealthSystem = HealthSystem
 health.VoxelcraftHealthSystem = VoxelcraftHealthSystem

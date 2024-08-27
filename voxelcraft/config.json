@@ -9,6 +9,9 @@
         "max_hunger": 20,
         "energy_modifier": 1.0,
         "eating_cooldown": 20,
+        "min_hunger_to_add_health": 14,
+        "health_regeneration": 1,
+        "hunger_damage": 3,
         "player_energy": {
             "health_addition_length": 60,
             "max_energy": 3000
