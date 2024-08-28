@@ -6,13 +6,13 @@ require "voxelcraft:health/health"
 
 VoxelcraftHungerSystem = create_class()
 
-function VoxelcraftHungerSystem:init(player_id)
+function VoxelcraftHungerSystem:init(player_id, hunger)
     self.health_system = health.health_storage:get(
         player.get_entity(player_id)
     )
-    self.max_power = vconfig:get("health.player_energy.health_addition_length")
+    self.max_power = vconfig:get("health.player_energy.max_energy")
     self.power = self.max_power
-    self.player_hunger = vconfig:get("health.max_hunger")
+    self.player_hunger = hunger
     self.player_id = player_id
     self.time_to_health_addition = vconfig:get(
         "health.player_energy.health_addition_length"
@@ -29,7 +29,7 @@ end
 
 function VoxelcraftHungerSystem:remove_hunger(player_hunger)
     self.player_hunger = self.player_hunger - player_hunger
-    self.player_hunger = math.min(self.player_hunger, 0)
+    self.player_hunger = math.max(self.player_hunger, 0)
 end
 
 function VoxelcraftHungerSystem:get_power()
@@ -48,6 +48,12 @@ function VoxelcraftHungerSystem:set_max_power(max_power)
     self.max_power = max_power
 end
 
+function VoxelcraftHungerSystem:reset_timer()
+    self.time_to_health_addition = vconfig:get(
+        "health.player_energy.health_addition_length"
+    );
+end
+
 function VoxelcraftHungerSystem:update_power()
     local entity_id = player.get_entity(self.player_id)    
     local player_entity = entities.get(entity_id)
@@ -56,13 +62,13 @@ function VoxelcraftHungerSystem:update_power()
         return
     end
 
-    local rigitbody = player_entity.rigitbody
-    local force = vec3.length(rigitbody:get_vel())
+    local rigidbody = player_entity.rigidbody
+    local force = vec3.length(rigidbody:get_vel())
 
     self.power = self.power - force
     if self.power <= 0 then
-        self.power = self.max_power
         self:remove_hunger(1)
+        self.power = self.max_power
     end
 end
 
@@ -77,6 +83,10 @@ function VoxelcraftHungerSystem:update_health()
                 self.health_system:add_health(
                     vconfig:get("health.health_regeneration")
                 )
+                self.health_system:play_damage_animation()
+                self.player_hunger = self.player_hunger - vconfig:get(
+                    "health.hunger_regeneration_sub"
+                )
             end
             if self.player_hunger == 0 then
                 self.health_system:damage(vconfig:get("health.hunger_damage"))
@@ -89,6 +99,7 @@ function VoxelcraftHungerSystem:update_health()
 end
 
 function VoxelcraftHungerSystem:update()
+    logger.debug("Player hunger: " .. self.player_hunger);
     self:update_power()
     self:update_health()
 end

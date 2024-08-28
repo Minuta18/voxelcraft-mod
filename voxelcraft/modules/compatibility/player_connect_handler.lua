@@ -37,8 +37,8 @@ function PlayerConnectHandler:on_player_connect(player_id)
             health.health_storage:set(
                 eid, health.health_system:get_system():new(
                     eid, 
-                    player_data.health, 
-                    player_data.hunger
+                    vconfig:get("health.max_health"), 
+                    player_data.health
                 )
             )
             
@@ -48,6 +48,24 @@ function PlayerConnectHandler:on_player_connect(player_id)
             end
         end
     end 
+
+    local player_hunger = hunger.hunger_storage:get(eid)
+    if not player_hunger then
+        local player_data = get_player_data(player_id)
+        if player_data ~= nil then
+            hunger.hunger_storage:set(
+                eid, hunger.hunger_system:get_system():new(
+                    player_id, player_data.hunger
+                )
+            )
+        else
+            hunger.hunger_storage:set(
+                eid, hunger.hunger_system:get_system():new(
+                    player_id, vconfig:get("health.max_hunger")
+                )
+            )
+        end
+    end
 
     -- TODO: why doesnt it works?
     -- logger.debug(dump(self.on_connect_handlers))

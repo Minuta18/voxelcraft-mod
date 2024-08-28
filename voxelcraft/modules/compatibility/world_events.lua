@@ -30,8 +30,8 @@ end
 world_events.on_world_open = function ()
     logger.info("voxelcraft.modules.compatibility.on_world_open() called")
     health.health_system:register_system(VoxelcraftHealthSystem)
+    hunger.hunger_system:register_system(VoxelcraftHungerSystem)
     player_connect_handler:on_player_connect(0)
-    logger.debug(dump(health.health_storage.store))
 
     math.randomseed(os.time())
     world_events.kill_all_breakers()
@@ -50,13 +50,12 @@ world_events.on_world_tick = function ()
     end
 
     health.health_storage:update_all()
-
-    hunger.update()
+    hunger.hunger_storage:update_all()
     furnaces.FurnaceStorage.update_all()
-    hunger.check_power()
+    eat_utils.update()
+
     health_bar.display_health()
     hunger_bar.display_hunger()
-    eat_utils.update()
 
     if gamemode.get_gamemode() == "survival" then
         vplayer.noclip_blocker()

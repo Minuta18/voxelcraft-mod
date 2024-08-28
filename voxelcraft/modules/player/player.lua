@@ -49,6 +49,7 @@ vplayer.apply_fall_damage = function (fall_blocks, player_id)
 
     local eid = player.get_entity(player_id)
     local player_health = health.health_storage:get(eid)
+    local player_hunger = hunger.hunger_storage:get(eid)
 
     if (vconfig:get("player.fall_damage.enabled")) then
         if (fall_blocks > vconfig:get("player.fall_damage.min_blocks")) then
@@ -58,7 +59,7 @@ vplayer.apply_fall_damage = function (fall_blocks, player_id)
                 ))
                 return
             end
-            voxelcraft_core.hunger.reset_time()
+            player_hunger:reset_timer()
             player_health:damage(fall_blocks - 3)
         end
     end
@@ -105,8 +106,12 @@ vplayer.respawn = function ()
     hud.resume()
     menu_opened = false
     is_dead = false
-    voxelcraft_core.health.set_health(20)
-    voxelcraft_core.hunger.set_hunger(20)
+
+    local eid = player.get_entity(0)
+    local player_health = health.health_storage:get(eid)
+    local player_hunger = hunger.hunger_storage:get(eid)
+    player_health:set_health(player_health)
+    player_hunger:set_hunger(player_hunger)
 end
 
 vplayer.block_running = function ()
@@ -128,9 +133,9 @@ vplayer.noclip_blocker = function ()
 end
 
 vplayer.update = function (pos, is_grounded, is_flight)
-    local player_health = health.health_storage:get(
-        player.get_entity(0)
-    )
+    local eid = player.get_entity(0)
+    local player_health = health.health_storage:get(eid)
+    local player_hunger = hunger.hunger_storage:get(eid)
 
     if gamemode.get_gamemode() == "survival" then
         if player_health ~= nil then
@@ -143,7 +148,7 @@ vplayer.update = function (pos, is_grounded, is_flight)
             player.set_rot(0, died_rot[1], died_rot[2], died_rot[3])
         end
 
-        if hunger.get_hunger() <= 6 then
+        if player_hunger:get_hunger() <= 6 then
             vplayer.block_running()
         end
 
