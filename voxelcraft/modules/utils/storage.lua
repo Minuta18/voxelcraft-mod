@@ -49,3 +49,11 @@ function PlayerDataStore:update_all()
         val:update()
     end
 end
+
+function PlayerDataStore:render_update_all()
+    for ind, val in pairs(self.store) do
+        if val.render_update ~= nil then
+            val:render_update()
+        end
+    end
+end
