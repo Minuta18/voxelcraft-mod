@@ -1,0 +1,11 @@
+{
+    "texture-faces": [
+        "ventilation",
+        "ventilation",
+        "ventilation",
+        "ventilation",
+        "ventilation_center",
+        "ventilation_center"
+       ],
+    "rotation": "pane"
+}

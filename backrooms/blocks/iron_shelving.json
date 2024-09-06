@@ -1,0 +1,18 @@
+{
+    "model": "custom",
+    "model-primitives": {
+    "aabbs": [
+      [0.0625, 0.0, 0.0625, 0.0625, 0.9375, 0.0625, "iron_shelving_stick", "iron_shelving_stick", "iron_grating_side_2", "iron_grating_side_2", "iron_shelving_stick", "iron_shelving_stick"],
+      [0.0625, 0.0, 0.875, 0.0625, 0.9375, 0.0625, "iron_shelving_stick", "iron_shelving_stick", "iron_grating_side_2", "iron_grating_side_2", "iron_shelving_stick", "iron_shelving_stick"],
+      [0.0, 0.9375, 0.0, 1.0, 0.0625, 1.0, "iron_shelving_side", "iron_shelving_side", "iron_shelving_top", "iron_shelving_top", "iron_shelving_side", "iron_shelving_side"]
+    ]
+    },
+    "hitboxes": [
+    [0.0625, 0.0, 0.0625, 0.0625, 0.9375, 0.0625],
+    [0.0625, 0.0, 0.875, 0.0625, 0.9375, 0.0625],
+    [0.0, 0.875, 0.0, 1.0, 0.125, 1.0]
+    ],
+    "rotation": "pane",
+    "light-passing": true,
+    "sky-light-passing": true
+  }

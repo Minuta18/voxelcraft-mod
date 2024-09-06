@@ -1,0 +1,6 @@
+{
+    "icon_type": "sprite",
+    "icon": "items:b_door",
+
+    "placing-block": "backrooms:door"
+}

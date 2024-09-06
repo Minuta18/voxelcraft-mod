@@ -1,0 +1,17 @@
+{
+    "texture-faces": [
+        "wooden_box_side",
+        "wooden_box_side",
+        "wooden_box_top",
+        "wooden_box_top",
+        "wooden_box_side",
+        "wooden_box_side"
+       ],
+    "model": "aabb",
+    "hitbox": [0.0625, 0.0, 0.0625, 0.875, 0.75, 0.875],
+    "light-passing": true,
+    "sky-light-passing": true,
+
+    "layout": "wooden_box",
+    "inventory-size": 20
+}

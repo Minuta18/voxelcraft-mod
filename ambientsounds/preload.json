@@ -1,0 +1,14 @@
+{
+    "sounds": [
+        "ambientsounds/animals/bird/bird-ambience",
+        "ambientsounds/animals/cicadas/cicadas",
+        "ambientsounds/animals/cicadas/cicadas-night",
+        "ambientsounds/animals/cricket/cricket",
+        "ambientsounds/animals/cricket/cricket-night",
+        "ambientsounds/animals/crow/crow",
+        "ambientsounds/water/beach",
+        "ambientsounds/water/ocean",
+        "ambientsounds/water/underwater",
+        "ambientsounds/water/underwater-deep",
+    ]
+}

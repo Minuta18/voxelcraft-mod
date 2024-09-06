@@ -1,0 +1,6 @@
+{
+    "texture": "stacker",
+	"draw-group": 2,
+	"rotation": "pipe",
+    "light-passing": true
+}

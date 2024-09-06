@@ -1,0 +1,18 @@
+{
+    "texture-faces": [
+        "b_door",
+        "b_door",
+        "b_door_top_2",
+        "b_door_top_2",
+        "b_door_side",
+        "b_door_side"
+       ],
+    "model": "aabb",
+    "hitbox": [0.875, 0.0, 0.0, 0.125, 2.0, 1.0],
+    "rotation": "pane",
+    "light-passing": true,
+    "sky-light-passing": true,
+
+    "hidden": true,
+    "picking-item": "backrooms:door.item"
+}

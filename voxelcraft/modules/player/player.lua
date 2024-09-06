@@ -2,6 +2,7 @@ require "voxelcraft:logger/logger"
 require "voxelcraft:gamemode/gamemode"
 require "voxelcraft:config/config"
 require "voxelcraft:health/init"
+require "voxelcraft:utils/utils"
 
 local is_falling = false
 local max_y_point = -1

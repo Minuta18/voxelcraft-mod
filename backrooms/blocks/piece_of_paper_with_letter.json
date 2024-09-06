@@ -1,0 +1,15 @@
+{
+"texture-faces": [
+    "piece_of_paper_with_letter_side",
+    "piece_of_paper_with_letter_side",
+    "piece_of_paper_with_letter_top",
+    "piece_of_paper_with_letter_top",
+    "piece_of_paper_with_letter_back",
+    "piece_of_paper_with_letter"
+   ],
+"model": "aabb",
+"hitbox": [0.84375, 0.28125, 0.0, 0.3125, 0.4375, 0.015625],
+"rotation": "pane",
+"light-passing": true,
+"sky-light-passing": true
+}

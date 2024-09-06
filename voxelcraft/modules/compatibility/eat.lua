@@ -21,7 +21,9 @@ eat_utils.eat = function (pid)
         return 
     end
 
-    local hunger_system = hunger.hunger_storage:get(player.get_entity(pid))
+    local hunger_system = hunger.hunger_storage:get(
+        player.get_entity(pid)
+    )
     hunger_system:set_hunger(hunger_system:get_hunger() + food)
 
     inventory.set(invid, slot, item_id, item_count - 1)
