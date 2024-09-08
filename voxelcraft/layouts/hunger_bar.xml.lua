@@ -9,14 +9,18 @@ end
 
 function on_resize()
     local window_size = gui.get_viewport()
-    -- hunger bar size is 500x40
-    return voxelcraft_core.compatibility.hunger_bar.calc_hunger_bar_position(
-        window_size[1], window_size[2], 500, 40
-    )
+    local x = window_size[1] / 2
+    x = x + 50
+    local y = window_size[2] - 120
+    return x, y
 end
 
 hunger_bar.display_hunger = function()
-    local player_hunger = voxelcraft_core.hunger.get_hunger()
+    local player_id = 0
+    local hunger_system = hunger.hunger_storage:get(player.get_entity(
+        player_id
+    ))
+    local player_hunger = hunger_system:get_hunger()    
     for hg = 10, 1, -1 do
         local hg_component = document[string.format("hunger%s", hg)]
         if (player_hunger <= (hg - 1) * 2) then

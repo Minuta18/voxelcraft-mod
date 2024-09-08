@@ -20,7 +20,12 @@ eat_utils.eat = function (pid)
     if eat_cooldown ~= 0 then
         return 
     end
-    hunger.set_hunger(hunger.get_hunger() + food)
+
+    local hunger_system = hunger.hunger_storage:get(
+        player.get_entity(pid)
+    )
+    hunger_system:set_hunger(hunger_system:get_hunger() + food)
+
     inventory.set(invid, slot, item_id, item_count - 1)
     eat_cooldown = vconfig:get(
         "health.eating_cooldown"

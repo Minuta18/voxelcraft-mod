@@ -29,6 +29,8 @@ end
 
 function on_render()
     find_selected_block()
+    voxelcraft_core.player_controller
+        .player_controller_storage:render_update_all()
 end
 
 local function has_value (tab, val)

@@ -7,23 +7,37 @@
         "default_player_hunger": 20,
         "max_health": 20,
         "max_hunger": 20,
+        "min_hunger": 7,
         "energy_modifier": 1.0,
         "eating_cooldown": 20,
+        "min_hunger_to_add_health": 14,
+        "health_regeneration": 1,
+        "hunger_regeneration_sub": 2,
+        "hunger_damage": 3,
         "player_energy": {
             "health_addition_length": 60,
             "max_energy": 3000
-        },
+        }
+    },
+    "visuals": {
         "damage": {
-            "animation_length": 5
+            "animation_speed": 5
         }
     },
     "player": {
-        "fall_damage": {
-            "enabled": true,
-            "min_blocks": 4
+        "keep_inventory": false,
+        "physics": {
+            "max_speed": 10.0,
+            "max_hunger_speed": 4.0,
+            "fall_damage_modifier": 1.0,
+            "fall_damage_min_blocks": 3.0,
+            "fall_damage": true
         }
     },
     "furnaces": {
         "speed_modifier": 1.0
+    },
+    "saving": {
+        "filename": "voxelcraft_player_data.json"
     }
 }
