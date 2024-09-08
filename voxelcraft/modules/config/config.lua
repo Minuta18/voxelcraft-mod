@@ -61,13 +61,13 @@ function Config:new()
 
     function public:get(config_path)
         if config_path == nil then
-            logger.debug("voxelcraft.config.get(config_path=nil) called")
+            -- logger.debug("voxelcraft.config.get(config_path=nil) called")
             return nil
         else
-            logger.debug(string.format(
-                "voxelcraft.config.get(config_path=%s) called",
-                config_path  
-            ))
+            -- logger.debug(string.format(
+            --     "voxelcraft.config.get(config_path=%s) called",
+            --     config_path  
+            -- ))
         end
         local parsed_path = split_string(config_path, ".")
         local result = private.config

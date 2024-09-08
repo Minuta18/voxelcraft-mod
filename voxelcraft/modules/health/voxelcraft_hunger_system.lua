@@ -74,25 +74,24 @@ end
 
 function VoxelcraftHungerSystem:update_health()
     self.time_to_health_addition = self.time_to_health_addition - 1
-    if self.time_to_health_addition == 0 then
-        if self.health_system:get_health() < 
-            self.health_system:get_max_health() and 
+    local health_system = health.health_storage:get(
+        player.get_entity(self.player_id)
+    )
+    if self.time_to_health_addition <= 0 then
+        if health_system:get_health() < 
+            health_system:get_max_health() and 
             self:get_hunger() > vconfig:get("health.min_hunger_to_add_health") 
         then
-            local vplayer = player_controller.player_controller_storage:get(
-                player.get_entity()
-            )
-
-            self.health_system:add_health(
+            health_system:add_health(
                 vconfig:get("health.health_regeneration")
             )
-            self.health_system:play_damage_animation()
+            health_system:play_damage_animation()
             self.player_hunger = self.player_hunger - vconfig:get(
                 "health.hunger_regeneration_sub"
             )
 
             if self.player_hunger == 0 then
-                self.health_system:damage(vconfig:get("health.hunger_damage"))
+                health_system:damage(vconfig:get("health.hunger_damage"))
             end
             self.time_to_health_addition = vconfig:get(
                 "health.player_energy.health_addition_length"

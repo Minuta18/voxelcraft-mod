@@ -150,11 +150,11 @@ function VoxelcraftPlayerPhysicalController:respawn()
     self.is_menu_opened = false
     self._is_dead = false
 
-    local eid = player.get_enitity(self.player_id)
+    local eid = player.get_entity(self.player_id)
     local player_health = health.health_storage:get(eid)
     local player_hunger = hunger.hunger_storage:get(eid)
-    player_health:set_health(vconfig:get("max_health"))
-    player_hunger:set_hunger(vconfig:get("max_hunger"))
+    player_health:set_health(vconfig:get("health.max_health"))
+    player_hunger:set_hunger(vconfig:get("health.max_hunger"))
 end
 
 function VoxelcraftPlayerPhysicalController:choose_spawnpoint(x, z)
@@ -198,7 +198,7 @@ function VoxelcraftPlayerPhysicalController:update()
 
     if gamemode.get_gamemode() == "survival" then
         if player_health ~= nil then
-            if player_health:get_health() == 0 and not self.is_menu_opened then
+            if player_health:get_health() <= 0 and not self.is_menu_opened then
                 self:kill()
             end
         end
@@ -240,7 +240,7 @@ function VoxelcraftPlayerPhysicalController:render_update()
     end
 
     if gamemode.get_gamemode() == "survival" then
-        self:_block_noclip()
+        -- self:_block_noclip()
         self:_block_running()
     end
 end

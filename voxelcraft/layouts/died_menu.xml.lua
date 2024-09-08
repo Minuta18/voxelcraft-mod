@@ -19,6 +19,6 @@ function on_respawn()
     )
     
     local controller = voxelcraft_core.player_controller
-        .player_controller_storage:get(0)
+        .player_controller_storage:get(player.get_entity())
     controller:respawn()
 end
