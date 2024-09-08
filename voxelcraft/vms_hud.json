@@ -1,0 +1,88 @@
+{
+    "items": [
+        {
+            "item_name": "voxelcraft:wooden_axe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:wooden_hoe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:wooden_pickaxe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:wooden_shovel",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:wooden_sword",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:sword_axe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:sword_hoe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:sword_pickaxe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:sword_shovel",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:sword_sword",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },{
+            "item_name": "voxelcraft:iron_axe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:iron_hoe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:iron_pickaxe",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:iron_shovel",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:iron_sword",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:apple",
+            "item_rotation": [-90.0, 5.0, 180.0],
+            "item_position": [0.4,-0.3,0.5]
+        },
+        {
+            "item_name": "voxelcraft:stick",
+            "item_rotation": [-120.0, 5.0, 90.0],
+            "item_position": [0.4,-0.3,0.5]
+        }
+    ]
+}
