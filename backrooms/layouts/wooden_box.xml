@@ -1,3 +1,0 @@
-<inventory coord="200, 20" color="#1F1F1FE0">
-  <slots-grid rows="2" count="20" sharefunc="inventory_share_func"/>
-</inventory>
