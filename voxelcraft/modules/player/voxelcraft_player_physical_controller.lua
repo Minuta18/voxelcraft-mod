@@ -20,10 +20,15 @@ function VoxelcraftPlayerPhysicalController:_block_running()
     if (player_hunger:get_hunger() < vconfig:get("health.min_hunger")) then
         max_speed = self.max_hunger_speed
     end
+    
+    if max_speed ~= 0 then
+        logger.debug(max_speed)
+    end
+
     if max_speed ~= 0 then
         local new_vel = vec3.normalize(rigidbody:get_vel())
         new_vel = vec3.mul(new_vel, max_speed)
-        rigidbody:set_vel(new_vel)
+        rigidbody:set_vel({new_vel[1], rigidbody:get_vel()[2], new_vel[3]})
     end
 end
 
@@ -35,7 +40,7 @@ end
 function VoxelcraftPlayerPhysicalController:init(player_id)
     self.player_id = player_id
     self.is_falling = false
-    self.is_dead = false
+    self._is_dead = false
     self.is_menu_opened = false
     self.max_y_point = -1
     self.fall_damage_enabled = vconfig:get("player.physics.fall_damage")
@@ -44,6 +49,8 @@ function VoxelcraftPlayerPhysicalController:init(player_id)
 
     self.died_pos = {0, 0, 0}
     self.died_rot = {0, 0, 0}
+
+    self.player_hunger = hunger.hunger_storage:get(player.get_entity())
 end
 
 function VoxelcraftPlayerPhysicalController:is_fall_damage_enabled()
@@ -87,44 +94,45 @@ function VoxelcraftPlayerPhysicalController:drop_inventory()
 end 
 
 function VoxelcraftPlayerPhysicalController:apply_fall_damage(fallen_blocks)
+    logger.debug(string.format(
+        "Player has fallen from %s blocks", math.floor(fallen_blocks)
+    ))
     if not self.fall_damage_enabled then return end
     
     local eid = player.get_entity(self.player_id)
     local player_health = health.health_storage:get(eid)
     local player_hunger = hunger.hunger_storage:get(eid)
 
-    if (self.fall_damage_enabled) then 
-        if (math.floor(fallen_blocks) > 
-            vconfig:get("player.physics.fall_damage_min_blocks")) then
-            if player_health == nil then
-                logger.warning(string.format(
-                    "Detected entity without health: eid=%s", eid
-                ))
-                return
-            end
-            if player_hunger == nil then
-                logger.warning(string.format(
-                    "Detected entity without hunger: eid=%s", eid
-                ))
-                return
-            end
-
-            player_hunger:reset_timer()
-            player_health:damage((math.floor(fallen_blocks) - vconfig:get(
-                "player.physics.fall_damage_min_blocks"
-            )) * vconfig:get(
-                "player.physics.fall_damage_modifier"
+    if (math.floor(fallen_blocks) > 
+        vconfig:get("player.physics.fall_damage_min_blocks")) then
+        if player_health == nil then
+            logger.warning(string.format(
+                "Detected entity without health: eid=%s", eid
             ))
+            return
         end
+        if player_hunger == nil then
+            logger.warning(string.format(
+                "Detected entity without hunger: eid=%s", eid
+            ))
+            return
+        end
+
+        player_hunger:reset_timer()
+        player_health:damage((math.floor(fallen_blocks) - vconfig:get(
+            "player.physics.fall_damage_min_blocks"
+        )) * vconfig:get(
+            "player.physics.fall_damage_modifier"
+        ))
     end
 end
 
 function VoxelcraftPlayerPhysicalController:is_dead()
-    return self.is_dead
+    return self._is_dead
 end
 
 function VoxelcraftPlayerPhysicalController:kill()
-    self.is_dead = true
+    self._is_dead = true
     hud.show_overlay("voxelcraft:died_menu", false)
     hud.open_permanent("voxelcraft:died_menu")
     self.is_menu_opened = true
@@ -140,7 +148,7 @@ function VoxelcraftPlayerPhysicalController:respawn()
     hud.close("voxelcraft:died_menu")
     hud.resume()
     self.is_menu_opened = false
-    self.is_dead = false
+    self._is_dead = false
 
     local eid = player.get_enitity(self.player_id)
     local player_health = health.health_storage:get(eid)
@@ -195,28 +203,38 @@ function VoxelcraftPlayerPhysicalController:update()
             end
         end
 
-        local player_entity = entities.get(self.player_id)
-        local is_grounded = player_entity.rigidbody:is_grounded()
-        local pos = player_entity.transform:get_pos()
+        local player_entity = entities.get(player.get_entity())
 
-        if self.is_falling then
-            if is_grounded then
-                self:apply_fall_damage(self.max_y_point - pos[2] + 1)
+        if player_entity ~= nil then
+            local is_grounded = player_entity.rigidbody:is_grounded()
+            local pos = player_entity.transform:get_pos()
+
+            if self.is_falling then
+                if is_grounded then
+                    self:apply_fall_damage(self.max_y_point - pos[2] + 1)
+                end
+            end
+
+            if not is_grounded and not player.is_flight() then
+                self.is_falling = true
+                self.max_y_point = math.max(pos[2], self.max_y_point)
+            else
+                self.is_falling = false
+                self.max_y_point = -1
             end
         end
 
-        if not is_grounded and not player.is_flight() then
-            self.is_falling = true
-            self.max_y_point = math.max(pos[2], self.max_y_point)
-        else
-            self.is_falling = false
-            self.max_y_point = -1
+        if not self:is_dead() then
+            if player_hunger ~= nil then
+                player_hunger:update_health()
+            end
+                -- self.player_hunger:update_health()
         end
     end
 end
 
 function VoxelcraftPlayerPhysicalController:render_update()
-    if self.is_dead then
+    if self._is_dead then
         player.set_pos(0, self.died_pos[1], self.died_pos[2], self.died_pos[3])
         player.set_rot(0, self.died_rot[1], self.died_rot[2], self.died_rot[3])
     end

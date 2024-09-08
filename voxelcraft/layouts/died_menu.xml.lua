@@ -17,5 +17,8 @@ function on_respawn()
     voxelcraft_core.logger.info(
         "voxelcraft.layout.died_menu.on_respawn() called"
     )
-    voxelcraft_core.vplayer.respawn()
+    
+    local controller = voxelcraft_core.player_controller
+        .player_controller_storage:get(0)
+    controller:respawn()
 end

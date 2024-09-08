@@ -27,10 +27,11 @@
     "player": {
         "keep_inventory": false,
         "physics": {
-            "max_speed": 6.0,
-            "max_hunger_speed": 2.5,
+            "max_speed": 10.0,
+            "max_hunger_speed": 4.0,
             "fall_damage_modifier": 1.0,
-            "fall_damage_min_blocks": 3.0
+            "fall_damage_min_blocks": 3.0,
+            "fall_damage": true
         }
     },
     "furnaces": {

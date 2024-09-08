@@ -1,5 +1,6 @@
 require "voxelcraft:utils/utils"
 require "voxelcraft:health/init"
+require "voxelcraft:player/init"
 require "voxelcraft:compatibility/saver"
 
 PlayerConnectHandler = create_class()
@@ -19,53 +20,41 @@ end
 
 function PlayerConnectHandler:on_player_connect(player_id)
     local eid = player.get_entity(player_id)
-    local player_health = health.health_storage:get(eid) 
-    if not player_health then
-        local player_data = get_player_data(player_id)
-        if player_data == nil then
-            health.health_storage:set(
-                eid, health.health_system:get_system():new(
-                    eid, 
-                    vconfig:get("health.max_health"), 
-                    vconfig:get("health.max_health")
-                )
-            )
 
-            vplayer.choose_spawn()
-            vplayer.tp_to_spawn()
-        else
-            health.health_storage:set(
-                eid, health.health_system:get_system():new(
-                    eid, 
-                    vconfig:get("health.max_health"), 
-                    player_data.health
-                )
-            )
-            
-            if player_data.first_launch then
-                vplayer.choose_spawn()
-                vplayer.tp_to_spawn()
-            end
-        end
-    end 
+    hunger.hunger_storage:set(
+        eid, hunger.hunger_system:get_system():new(
+            player_id, vconfig:get("health.max_hunger")
+        )
+    )
+    logger.info(string.format(
+        "HungerSystem initialized for player %s", player_id
+    ))
 
-    local player_hunger = hunger.hunger_storage:get(eid)
-    if not player_hunger then
-        local player_data = get_player_data(player_id)
-        if player_data ~= nil then
-            hunger.hunger_storage:set(
-                eid, hunger.hunger_system:get_system():new(
-                    player_id, player_data.hunger
-                )
-            )
-        else
-            hunger.hunger_storage:set(
-                eid, hunger.hunger_system:get_system():new(
-                    player_id, vconfig:get("health.max_hunger")
-                )
-            )
-        end
-    end
+    health.health_storage:set(
+        eid, health.health_system:get_system():new(
+            eid, 
+            vconfig:get("health.max_health"), 
+            vconfig:get("health.max_health")
+        )
+    )
+    logger.info(string.format(
+        "HealthSystem initialized for player %s", player_id
+    ))
+
+    player_controller.player_controller_storage:set(
+        eid, player_controller.player_controller_system:get_system():new(
+            player_id
+        )
+    )
+    local player_cnt = player_controller.player_controller_storage:get(
+        eid
+    ) 
+    logger.info(string.format(
+        "PlayerController initialized for player %s", player_id
+    ))
+
+    player_cnt:choose_spawnpoint()
+    player_cnt:teleport_to_spawnpoint()
 
     -- TODO: why doesnt it works?
     -- logger.debug(dump(self.on_connect_handlers))

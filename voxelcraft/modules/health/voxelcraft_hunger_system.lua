@@ -79,15 +79,18 @@ function VoxelcraftHungerSystem:update_health()
             self.health_system:get_max_health() and 
             self:get_hunger() > vconfig:get("health.min_hunger_to_add_health") 
         then
-            if not vplayer.is_dead() then
-                self.health_system:add_health(
-                    vconfig:get("health.health_regeneration")
-                )
-                self.health_system:play_damage_animation()
-                self.player_hunger = self.player_hunger - vconfig:get(
-                    "health.hunger_regeneration_sub"
-                )
-            end
+            local vplayer = player_controller.player_controller_storage:get(
+                player.get_entity()
+            )
+
+            self.health_system:add_health(
+                vconfig:get("health.health_regeneration")
+            )
+            self.health_system:play_damage_animation()
+            self.player_hunger = self.player_hunger - vconfig:get(
+                "health.hunger_regeneration_sub"
+            )
+
             if self.player_hunger == 0 then
                 self.health_system:damage(vconfig:get("health.hunger_damage"))
             end
@@ -99,7 +102,6 @@ function VoxelcraftHungerSystem:update_health()
 end
 
 function VoxelcraftHungerSystem:update()
-    logger.debug("Player hunger: " .. self.player_hunger);
+    -- logger.debug("Player hunger: " .. self.player_hunger);
     self:update_power()
-    self:update_health()
 end

@@ -24,12 +24,14 @@ block_operations.destroy_block = function (x, y, z)
     block.destruct(x, y, z, 0)
 
     if drops == nil then
+        logger.debug(string.format("%s, %s", block_id, block.name(block_id)))
         block_operations.spawn_mini_block(
             item.index(block.name(block_id) .. ".item"), 1, {x, y, z}
         ) 
     end
 
     ---@diagnostic disable-next-line: param-type-mismatch
+    if drops == nil then return end
     for _, drop in ipairs(drops) do
         if drop[1] ~= "core:empty" then
             block_operations.spawn_mini_block(

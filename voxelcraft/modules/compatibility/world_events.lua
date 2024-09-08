@@ -8,6 +8,7 @@ require "voxelcraft:compatibility/saver"
 require "voxelcraft:config/config"
 require "voxelcraft:compatibility/eat"
 require "voxelcraft:compatibility/player_connect_handler"
+require "voxelcraft:player/init"
 
 local blocks_initialized = false
 
@@ -31,6 +32,10 @@ world_events.on_world_open = function ()
     logger.info("voxelcraft.modules.compatibility.on_world_open() called")
     health.health_system:register_system(VoxelcraftHealthSystem)
     hunger.hunger_system:register_system(VoxelcraftHungerSystem)
+    player_controller.player_controller_system:register_system(
+        player_controller.VoxelcraftPlayerPhysicalController
+    )
+
     player_connect_handler:on_player_connect(0)
 
     math.randomseed(os.time())
@@ -51,16 +56,13 @@ world_events.on_world_tick = function ()
 
     health.health_storage:update_all()
     hunger.hunger_storage:update_all()
+    player_controller.player_controller_storage:update_all()
     furnaces.FurnaceStorage.update_all()
     eat_utils.update()
 
     health_bar.display_health()
     hunger_bar.display_hunger()
-
-    if gamemode.get_gamemode() == "survival" then
-        vplayer.noclip_blocker()
-    end
-
+    
     if input.is_pressed("key:z") then
         hud.open_block(1, 5, 1)
     end
