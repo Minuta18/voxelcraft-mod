@@ -28,7 +28,7 @@ world_events.kill_all_breakers = function ()
     end
 end
 
-world_events.on_world_open = function ()
+world_events.intialize = function ()
     logger.info("voxelcraft.modules.compatibility.on_world_open() called")
     health.health_system:register_system(VoxelcraftHealthSystem)
     hunger.hunger_system:register_system(VoxelcraftHungerSystem)
@@ -48,7 +48,7 @@ world_events.on_world_open = function ()
     -- hunger.set_hunger(data["hunger"])
 end
 
-world_events.on_world_tick = function ()
+world_events.update = function ()
     if not blocks_initialized then
         block.set(1, 5, 1, block.index("voxelcraft:mini_crafter"), 0)
         blocks_initialized = true

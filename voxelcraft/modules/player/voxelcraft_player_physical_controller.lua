@@ -164,7 +164,8 @@ function VoxelcraftPlayerPhysicalController:choose_spawnpoint(x, z)
             block_id ~= block.index("base:water") and
             block_id ~= -1 
         then
-            player.set_spawnpoint(self.player_id, x, new_y + 1, z)
+            player.set_spawnpoint(self.player_id, x, new_y + 2, z)
+            player.set_pos(x, new_y + 2, z)
             break
         end
     end

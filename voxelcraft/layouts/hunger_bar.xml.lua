@@ -16,10 +16,7 @@ function on_resize()
 end
 
 hunger_bar.display_hunger = function()
-    local player_id = 0
-    local hunger_system = hunger.hunger_storage:get(player.get_entity(
-        player_id
-    ))
+    local hunger_system = hunger.hunger_storage:get(player.get_entity(0))
     local player_hunger = hunger_system:get_hunger()    
     for hg = 10, 1, -1 do
         local hg_component = document[string.format("hunger%s", hg)]
