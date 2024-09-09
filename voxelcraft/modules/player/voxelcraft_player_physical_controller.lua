@@ -22,7 +22,7 @@ function VoxelcraftPlayerPhysicalController:_block_running()
     end
     
     if max_speed ~= 0 then
-        logger.debug(max_speed)
+        -- logger.debug(max_speed)
     end
 
     if max_speed ~= 0 then

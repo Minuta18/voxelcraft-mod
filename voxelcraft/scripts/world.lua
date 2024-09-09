@@ -1,4 +1,5 @@
 require "voxelcraft:core"
+require "voxelcraft:worldgen"
 
 function on_world_open()
     voxelcraft_core.logger.info(

@@ -1,0 +1,16 @@
+{
+    "voxelcraft:coal_ore": {
+        "min_height": 4,
+        "max_height": 100,
+        "min_size": 10,
+        "max_size": 30,
+        "max_per_chunk": 50
+    },
+    "voxelcraft:iron_ore": {
+        "min_height": 4,
+        "max_height": 60,
+        "min_size": 4,
+        "max_size": 12,
+        "max_per_chunk": 50
+    }
+}
