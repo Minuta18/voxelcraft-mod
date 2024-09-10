@@ -5,6 +5,6 @@
     />
     <slots-grid 
         updatefunc="clear_craft" count="1" rows="1" 
-        start-index="9" pos="364,78" 
+        start-index="9" pos="364,78" sharefunc="craft_all"
     />
 </inventory>

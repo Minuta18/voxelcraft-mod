@@ -210,6 +210,16 @@ crafting.add_crafting_table_inventory_craft({
     "core:empty", "base:planks.item",
 }, {"voxelcraft:stick", 4}, "voxelcraft:crafting_table_inventory")
 
+crafting.add_crafting_table_inventory_craft({
+    "voxelcraft:coal", "core:empty", 
+    "voxelcraft:stick", "core:empty",
+}, {"base:torch.item", 4}, "voxelcraft:crafting_table_inventory")
+
+crafting.add_crafting_table_inventory_craft({
+    "core:empty", "voxelcraft:coal", 
+    "core:empty", "voxelcraft:stick",
+}, {"base:torch.item", 4}, "voxelcraft:crafting_table_inventory")
+
 crafting.add_craft(function (slot_list)
     if slot_list[1][1] == "voxelcraft:iron_ore.item" then
         return {"voxelcraft:iron", 1}
