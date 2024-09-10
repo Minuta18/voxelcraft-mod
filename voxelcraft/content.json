@@ -1,12 +1,6 @@
 {
-  "blocks": [
-    "crafting_table",
-    "cobblestone",
-    "iron_ore",
-    "coal_ore",
-    "furnace",
-    "chest",
-    "mini_crafter"
+  "entities": [
+    "breaker"
   ],
   "items": [
     "coal",
@@ -27,9 +21,17 @@
     "wooden_pickaxe",
     "wooden_shovel",
     "wooden_sword",
-    "apple"
+    "apple",
+    "seeds"
   ],
-  "entities": [
-    "breaker"
+  "blocks": [
+    "crafting_table",
+    "cobblestone",
+    "iron_ore",
+    "coal_ore",
+    "furnace",
+    "chest",
+    "mini_crafter",
+    "farm"
   ]
 }

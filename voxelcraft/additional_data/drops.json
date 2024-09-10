@@ -1,6 +1,8 @@
 {
     "base:blue_lamp": "core:empty",
-    "base:grass": "core:empty",
+    "base:grass": {
+        "loot_table": "voxelcraft:grass_drop"
+    },
     "base:grass_block": "base:dirt.item",
     "base:green_lamp": "core:empty",
     "base:lamp": "core:empty",
