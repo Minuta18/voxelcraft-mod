@@ -1,13 +1,6 @@
 ---@diagnostic disable: undefined-global
 require "voxelcraft:core"
 
-function on_open(invid)
-    voxelcraft_core.logger.info(string.format(
-        "voxelcraft.layout.health_bar.on_open(invid=%s) called",
-        invid
-    ))
-end
-
 function on_resize()
     local window_size = gui.get_viewport()
     -- health bar size is 500x40

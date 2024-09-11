@@ -29,7 +29,7 @@ world_events.kill_all_breakers = function ()
 end
 
 world_events.intialize = function ()
-    logger.info("voxelcraft.modules.compatibility.on_world_open() called")
+    logger.info("Initializing voxelcraft")
     health.health_system:register_system(VoxelcraftHealthSystem)
     hunger.hunger_system:register_system(VoxelcraftHungerSystem)
     player_controller.player_controller_system:register_system(
@@ -69,10 +69,6 @@ world_events.update = function ()
 end
 
 world_events.on_world_save = function ()
-    -- local data = {}
-    -- data["health"] = health.get_health()
-    -- data["hunger"] = hunger.get_hunger()
-    -- data["first_launch"] = false
-    -- save_data(data)
+    save_all()
 end
 

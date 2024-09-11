@@ -1,12 +1,5 @@
 require "voxelcraft:core"
 
-function on_open(invid)
-    voxelcraft_core.logger.info(string.format(
-        "voxelcraft.layout.hunger_bar.on_open(invid=%s) called",
-        invid
-    ))
-end
-
 function on_resize()
     local window_size = gui.get_viewport()
     local x = window_size[1] / 2

@@ -14,7 +14,6 @@ eat_utils.eat = function (pid)
     local item_str_id = item.name(item_id)
     local food = loader_api.get_food_by_item(item_str_id)
     if food == nil then
-        logger.debug("?")
         return
     end
     if eat_cooldown ~= 0 then

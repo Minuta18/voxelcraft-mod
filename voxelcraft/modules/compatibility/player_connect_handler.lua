@@ -61,10 +61,6 @@ function PlayerConnectHandler:on_player_connect(player_id)
     -- for ind, handler in self.on_connect_handlers do
     --     handler(player_id)
     -- end
-
-    logger.debug(dump(hunger.hunger_storage))
-    logger.debug(dump(health.health_storage))
-    logger.debug(dump(player_controller.player_controller_storage))
 end
 
 ---@diagnostic disable-next-line: lowercase-global

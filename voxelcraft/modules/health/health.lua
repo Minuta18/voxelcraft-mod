@@ -15,6 +15,9 @@ end
 
 health.health_system = HealthSystem:new()
 health.health_storage = PlayerDataStore:new()
+health.health_saver = PlayerDataStoreSaver:new(
+    health.health_storage, "health_storage"
+)
 health.HealthSystem = HealthSystem
 health.BaseHealthSystem = HealthSystem
 health.VoxelcraftHealthSystem = VoxelcraftHealthSystem

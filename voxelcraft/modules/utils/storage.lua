@@ -57,3 +57,27 @@ function PlayerDataStore:render_update_all()
         end
     end
 end
+
+PlayerDataStoreSaver = create_class()
+
+function PlayerDataStoreSaver:init(player_data_store, filename)
+    self.player_data_store = player_data_store
+    self.filename = filename
+end
+
+function PlayerDataStoreSaver:get_filename()
+    return self.filename
+end
+
+function PlayerDataStoreSaver:set_filename(filename)
+    self.filename = filename
+end
+
+function PlayerDataStoreSaver:save()
+    local data = self.player_data_store.store
+    local data_file = pack.data_file(
+        "voxelcraft", "stores/" .. self.filename .. ".json"
+    )
+    logger.debug(dump(data))
+    file.write(data_file, json.tostring(data))
+end
