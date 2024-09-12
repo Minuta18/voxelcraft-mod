@@ -240,3 +240,11 @@ crafting.add_craft(function (slot_list)
     end
     return nil
 end, "voxelcraft:furnace")
+
+crafting.add_craft(function (slot_list)
+    if slot_list[1][1] == "base:wood.item" then
+        return {"voxelcraft:coal", 1}
+    end
+    return nil
+end, "voxelcraft:furnace")
+

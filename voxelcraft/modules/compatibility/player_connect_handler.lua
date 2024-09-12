@@ -30,16 +30,21 @@ function PlayerConnectHandler:on_player_connect(player_id)
         "HungerSystem initialized for player %s", player_id
     ))
 
-    health.health_storage:set(
-        eid, health.health_system:get_system():new(
-            eid, 
-            vconfig:get("health.max_health"), 
-            vconfig:get("health.max_health")
+    local health_storage = health.health_storage:get(eid)
+
+    if health_storage == nil then
+        health.health_storage:set(
+            eid, health.health_system:get_system():new(
+                eid, 
+                vconfig:get("health.max_health"), 
+                vconfig:get("health.max_health")
+            )
         )
-    )
-    logger.info(string.format(
-        "HealthSystem initialized for player %s", player_id
-    ))
+      
+        logger.info(string.format(
+            "HealthSystem initialized for player %s", player_id
+        ))
+    end
 
     player_controller.player_controller_storage:set(
         eid, player_controller.player_controller_system:get_system():new(

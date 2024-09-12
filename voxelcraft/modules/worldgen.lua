@@ -3,8 +3,6 @@ require "customworldgen:main"
 customworldgen.params["generation_rate"] = 20
 customworldgen.params["generation_radius"] = 2
 
-logger.debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
 customworldgen.register_generator(function (chunk_x, chunk_z)
     local x1, z1, x2, z2 = customworldgen.get_cords_by_chunk(chunk_x, chunk_z)
     

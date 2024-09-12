@@ -17,10 +17,6 @@ function get_avaliable_fuel(invid)
 end
 
 function check_craft(invid, slot)
-    voxelcraft_core.logger.info(string.format(
-        "voxelcraft.layouts.furnace.check_craft(" ..
-        "invid=%s, slot=%s) called", invid, slot
-    ))
     local player_items = {}
     for i = 1, 1, 1 do
         player_items[i] = {
@@ -69,23 +65,19 @@ end
 function on_fuel_end_callback(invid)
     local furnace = furnaces.FurnaceStorage.get(invid)
     furnace:add_fuel(get_avaliable_fuel(invid))
-    logger.debug("!")
 end
 
 function reset_checker(invid, craft_result)
     local res_item_id, res_item_count = inventory.get(invid, 2)
     if res_item_count + craft_result[2] > item.stack_size(res_item_id) then
-        logger.debug("!1")
         return true
     end
     if res_item_id ~= item.index(craft_result[1]) and 
        res_item_id ~= 0 then
-        logger.debug("!2")
         return true
     end
     local src_item_id, src_item_count = inventory.get(invid, 0)
     if src_item_id == 0 then
-        logger.debug("!3")
         return true
     end
 end

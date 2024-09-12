@@ -1,6 +1,5 @@
 require "voxelcraft:utils/utils"
 require "voxelcraft:logger/logger"
-require "voxelcraft:health/voxelcraft_health_system"
 
 VoxelcraftHealthSerializer = create_class(ISerializable)
 
@@ -19,11 +18,14 @@ function VoxelcraftHealthSerializer:deserialize(serialized_inst)
     serialized_inst.ticks_to_end_animation == nil then
         logger.warning('Found broken or incomplete instance; skipping.')
         logger.warning('Instance details: ' .. dump(serialized_inst))
+        return nil
     end
 
     local inst = VoxelcraftHealthSystem:new(
-        serialized_inst.entity_id, serialized_inst.max_health, 
+        serialized_inst.eid, serialized_inst.max_health, 
         serialized_inst.player_health
     )
     inst.ticks_to_end_animation = serialized_inst.ticks_to_end_animation
+
+    return inst
 end

@@ -1,4 +1,5 @@
 require "voxelcraft:health/base_health_system"
+require "voxelcraft:health/voxelcraft_health_serializer"
 
 VoxelcraftHealthSystem = create_class(BaseHealthSystem)
 
@@ -7,6 +8,7 @@ function VoxelcraftHealthSystem:init(entity_id, max_health, player_health)
     self.max_health = max_health
     self.player_health = player_health
     self.ticks_to_end_animation = 0
+    self.serializer = VoxelcraftHealthSerializer:new()
 end
 
 function VoxelcraftHealthSystem:get_health()
@@ -64,4 +66,12 @@ function VoxelcraftHealthSystem:damage(health)
     self:remove_health(health)
     self:play_damage_animation()
     self:play_damage_sound()
+end
+
+function BaseHealthSystem:get_serializer()
+    return self.serializer
+end
+
+function BaseHealthSystem:set_serializer(serializer)
+    self.serializer = serializer    
 end

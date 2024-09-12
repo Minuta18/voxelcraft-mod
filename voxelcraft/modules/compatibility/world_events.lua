@@ -36,6 +36,8 @@ world_events.intialize = function ()
         player_controller.VoxelcraftPlayerPhysicalController
     )
 
+    load_all()
+
     player_connect_handler:on_player_connect(0)
 
     math.randomseed(os.time())

@@ -76,8 +76,45 @@ end
 function PlayerDataStoreSaver:save()
     local data = self.player_data_store.store
     local data_file = pack.data_file(
-        "voxelcraft", "stores/" .. self.filename .. ".json"
+        "voxelcraft", "stores." .. self.filename .. ".json"
     )
-    logger.debug(dump(data))
-    file.write(data_file, json.tostring(data))
+
+    logger.info(string.format(
+        "Saving store %s to file %s",
+        self.filename, data_file
+    ))
+
+    local result = {}
+    result.stores = {}
+    for k, v in pairs(data) do
+        if v.get_serializer ~= nil then
+            result.stores[tostring(k)] = v:get_serializer():serialize(v)
+        end
+    end
+
+    file.write(data_file, json.tostring(result))
+end
+
+function PlayerDataStoreSaver:load(player_data_store, deserializer)
+    local data_file = pack.data_file(
+        "voxelcraft", "stores." .. self.filename .. ".json"
+    )
+
+    if file.exists(data_file) then
+        logger.info(string.format(
+            "Loading store %s to file %s",
+            self.filename, data_file
+        ))
+
+        local result = {}
+        local data = json.parse(file.read(data_file)).stores
+        if data == nil then return end
+
+        for k, v in pairs(data) do
+            local result = deserializer:deserialize(v)
+            if result ~= nil then
+                player_data_store:set(tonumber(k), result)
+            end
+        end
+    end
 end
