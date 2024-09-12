@@ -52,7 +52,7 @@ function on_update()
         selected_block_id
     )
     if current_block_max_progress == nil then
-        current_block_max_progress = -1
+        current_block_max_progress = 20
     end
 
     local invid, slot = player.get_inventory(0)
