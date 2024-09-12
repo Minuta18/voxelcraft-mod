@@ -1,4 +1,5 @@
 require "voxelcraft:utils/utils"
+require "voxelcraft:utils/meta"
 require "voxelcraft:logger/logger"
 require "voxelcraft:health/init"
 
@@ -6,6 +7,7 @@ require "voxelcraft:health/init"
 function save_all()
     health.health_saver:save()
     hunger.hunger_saver:save()
+    save_meta()
 end
 
 ---@diagnostic disable-next-line: lowercase-global

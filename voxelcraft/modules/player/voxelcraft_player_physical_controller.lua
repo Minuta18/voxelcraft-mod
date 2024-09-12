@@ -241,7 +241,7 @@ function VoxelcraftPlayerPhysicalController:render_update()
     end
 
     if gamemode.get_gamemode() == "survival" then
-        -- self:_block_noclip()
+        self:_block_noclip()
         self:_block_running()
     end
 end

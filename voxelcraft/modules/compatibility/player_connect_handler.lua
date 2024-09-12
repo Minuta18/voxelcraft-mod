@@ -1,4 +1,5 @@
 require "voxelcraft:utils/utils"
+require "voxelcraft:utils/meta"
 require "voxelcraft:health/init"
 require "voxelcraft:player/init"
 require "voxelcraft:compatibility/saver"
@@ -63,8 +64,11 @@ function PlayerConnectHandler:on_player_connect(player_id)
         "PlayerController initialized for player %s", player_id
     ))
 
-    player_cnt:choose_spawnpoint()
-    player_cnt:teleport_to_spawnpoint()
+
+    if voxelcraft_meta.first_run then
+        player_cnt:choose_spawnpoint()
+        player_cnt:teleport_to_spawnpoint()
+    end
 
     -- TODO: why doesnt it works?
     -- logger.debug(dump(self.on_connect_handlers))

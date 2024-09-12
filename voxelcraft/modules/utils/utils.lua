@@ -1,4 +1,6 @@
 require "voxelcraft:utils/storage"
+require "voxelcraft:utils/meta"
+require "voxelcraft:utils/serializer"
 
 function split_string(inputstr, sep)
     -- Copied from stackoverflow
