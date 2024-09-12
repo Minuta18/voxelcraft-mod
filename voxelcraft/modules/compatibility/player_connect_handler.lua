@@ -21,14 +21,19 @@ end
 function PlayerConnectHandler:on_player_connect(player_id)
     local eid = player.get_entity(player_id)
 
-    hunger.hunger_storage:set(
-        eid, hunger.hunger_system:get_system():new(
-            player_id, vconfig:get("health.max_hunger")
+    local hunger_storage = hunger.hunger_storage:get(eid)
+    logger.debug(dump(hunger.hunger_storage))
+
+    if hunger_storage == nil then
+        hunger.hunger_storage:set(
+            eid, hunger.hunger_system:get_system():new(
+                player_id, vconfig:get("health.max_hunger")
+            )
         )
-    )
-    logger.info(string.format(
-        "HungerSystem initialized for player %s", player_id
-    ))
+        logger.info(string.format(
+            "HungerSystem initialized for player %s", player_id
+        ))
+    end
 
     local health_storage = health.health_storage:get(eid)
 

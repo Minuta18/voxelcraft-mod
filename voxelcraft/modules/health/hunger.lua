@@ -19,6 +19,9 @@ end
 
 hunger.hunger_system = HungerSystem:new()
 hunger.hunger_storage = PlayerDataStore:new()
+hunger.hunger_saver = PlayerDataStoreSaver:new(
+    hunger.hunger_storage, "hunger_storage"
+)
 hunger.HungerSystem = HungerSystem
 hunger.BaseHungerSystem = BaseHungerSystem
 hunger.VoxelcraftHungerSystem = VoxelcraftHungerSystem

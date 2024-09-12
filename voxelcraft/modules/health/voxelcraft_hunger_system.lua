@@ -3,6 +3,7 @@ require "voxelcraft:config/config"
 require "voxelcraft:logger/logger"
 require "voxelcraft:health/base_hunger_system"
 require "voxelcraft:health/health"
+require "voxelcraft:health/voxelcraft_hunger_serializer"
 
 VoxelcraftHungerSystem = create_class()
 
@@ -17,6 +18,7 @@ function VoxelcraftHungerSystem:init(player_id, hunger)
     self.time_to_health_addition = vconfig:get(
         "health.player_energy.health_addition_length"
     );
+    self.serializer = VoxelcraftHungerSerializer:new()
 end
 
 function VoxelcraftHungerSystem:get_hunger()
@@ -103,4 +105,12 @@ end
 function VoxelcraftHungerSystem:update()
     -- logger.debug("Player hunger: " .. self.player_hunger);
     self:update_power()
+end
+
+function VoxelcraftHungerSystem:get_serializer()
+    return self.serializer
+end
+
+function VoxelcraftHungerSystem:set_serializer(serializer)
+    self.serializer = serializer    
 end

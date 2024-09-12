@@ -13,3 +13,5 @@ function BaseHungerSystem:get_max_power() end
 function BaseHungerSystem:set_max_power(power) end
 function BaseHungerSystem:update_power() end
 function BaseHungerSystem:update() end
+function BaseHungerSystem:get_serializer() end
+function BaseHungerSystem:set_serializer(serializer) end
