@@ -41,6 +41,13 @@
 
 - [loot_tables/loot_table.lua](./latest/modules/loot_tables.md)
 
+## Контроллер игрока
+
+- [player/base_player_physical_controller.lua](./latest/modules/player/base.md)
+- [player/voxelcraft_player_physical_controller.lua](./latest/modules/player/voxelcraft.md)
+
+## Утилиты
+
 ## Документация для версий v0.2.0 и раньше
 
 - [additional data - кастомные свойства предметов и блоков](./modules/additional_data.md)
