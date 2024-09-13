@@ -68,10 +68,10 @@ function VoxelcraftHealthSystem:damage(health)
     self:play_damage_sound()
 end
 
-function BaseHealthSystem:get_serializer()
+function VoxelcraftHealthSystem:get_serializer()
     return self.serializer
 end
 
-function BaseHealthSystem:set_serializer(serializer)
+function VoxelcraftHealthSystem:set_serializer(serializer)
     self.serializer = serializer    
 end
