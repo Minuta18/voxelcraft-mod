@@ -69,7 +69,9 @@ function on_update()
     end
 
     if input.is_pressed("mouse:left") then
-        progress = progress + progress_speed
+        if not hud.is_inventory_open() then
+            progress = progress + progress_speed
+        end
     else
         progress = 0
     end
