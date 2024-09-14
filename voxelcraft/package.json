@@ -2,7 +2,7 @@
     "id": "voxelcraft",
     "title": "Voxelcraft",
     "version": "0.2.0",
-    "creator": "Minuta18",
+    "creator": "Minuta18", 
     "description": "Мод предоставляет функционал похожий на режим выживания. Может быть использованным для создания других модов",
     "dependencies": [
         "customworldgen"
