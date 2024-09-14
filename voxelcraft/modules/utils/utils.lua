@@ -13,3 +13,13 @@ function split_string(inputstr, sep)
     end
     return t
 end  
+
+function has_value(tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end

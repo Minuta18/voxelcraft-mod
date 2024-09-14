@@ -49,7 +49,7 @@ end
 logger.set_log_level = function (log_level)
     if log_level ~= "DEBUG" and log_level ~= "INFO" and log_level ~= "WARNING"
         and log_level ~= "ERROR" then
-        this.error("Unknown log level. Use one of the following: DEBUG, " ..
+        logger.error("Unknown log level. Use one of the following: DEBUG, " ..
             "INFO, WARNING, ERROR."
         );
     end

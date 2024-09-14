@@ -16,6 +16,10 @@ block_operations.spawn_mini_block = function (block_id, item_count, pos)
 end
 
 block_operations.destroy_block = function (x, y, z)
+    if block.is_segment(x, y, z) then
+        x, y, z = block.seek_origin(x, y, z)
+    end
+
     local block_id = block.get(x, y, z)
     if block_id == block.index("core:air") then
         return
@@ -87,8 +91,6 @@ block_operations.place_block = function (
         return
     end
 
-    inventory.set(invid, slot, selected_item, selected_item_count - 1)
-
     local cords = target_block_pos
     if not block.is_replaceable_at(
         cords[1], cords[2], cords[3]
@@ -96,6 +98,11 @@ block_operations.place_block = function (
         cords = vec3.add(cords, normal)
     end
 
+    if not block.is_replaceable_at(cords[1], cords[2], cords[3]) then
+        return
+    end
+
+    inventory.set(invid, slot, selected_item, selected_item_count - 1)
     local block_ind = block.index(item.name(selected_item):gsub("%.item", ""))
 
     block.place(
@@ -109,4 +116,14 @@ block_operations.interact_block = function (pos)
     local block_id = block.get(pos[1], pos[2], pos[3])
     local block_str_id = block.name(block_id)
     events.emit(block_str_id .. ".interact", pos[1], pos[2], pos[3])
+end
+
+block_operations.raycast_from_camera = function ()
+    local pid = 0
+    local cam = cameras.get(cameras.name(player.get_camera(pid)))
+    local front = cam:get_front()
+    local cam_pos = cam:get_pos()
+    local ray = block.raycast(cam_pos, front, 11)
+
+    return ray
 end

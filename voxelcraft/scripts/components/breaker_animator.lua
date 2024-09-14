@@ -1,6 +1,7 @@
 ---@diagnostic disable: lowercase-global
 require "voxelcraft:core"
 require "voxelcraft:additional_data/init"
+require "voxelcraft:utils/utils"
 
 local tsf = entity.transform
 local body = entity.rigidbody
@@ -20,11 +21,18 @@ function set_texture(texture)
 end
 
 function find_selected_block()
-    local x, y, z = player.get_selected_block(0)
-    if x ~= nil then
-        tsf:set_pos({x + 0.5, y + 0.5, z + 0.5})    
-        selected_block = {x, y, z}    
+    -- local x, y, z = player.get_selected_block(0)
+    local ray = block_operations.raycast_from_camera()
+    if ray == nil then
+        tsf:set_pos({0.5, 0.5, 0.5})    
+        selected_block = {0, 0, 0}   
+        return
     end
+    local block = ray.iendpoint
+    local x, y, z = block[1], block[2], block[3]
+    
+    tsf:set_pos({x + 0.5, y + 0.5, z + 0.5})    
+    selected_block = {x, y, z}    
 end
 
 function on_render()
@@ -33,24 +41,29 @@ function on_render()
         .player_controller_storage:render_update_all()
 end
 
-local function has_value (tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-
-    return false
-end
-
 function on_update()
     -- TODO: refactor this function
+    -- if block.get(
+    --     selected_block[1], selected_block[2], selected_block[3]
+    -- ) ~= -1 then
+    --     if block.is_segment(
+    --         selected_block[1], selected_block[2], selected_block[3]
+    --     ) then
+    --         -- selected_block[1], selected_block[2], selected_block[3] =
+    --         --     block.seek_origin(
+    --         --         selected_block[1], selected_block[2], selected_block[3]
+    --         --     )
+    --         logger.debug("!")
+    --     end
+    -- end
+
     local selected_block_id = block.name(block.get(
         selected_block[1], selected_block[2], selected_block[3])
     )
     local current_block_max_progress = loader_api.get_hardness_by_block(
         selected_block_id
     )
+
     if current_block_max_progress == nil then
         current_block_max_progress = 20
     end
