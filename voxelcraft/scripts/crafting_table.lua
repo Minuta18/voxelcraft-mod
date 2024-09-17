@@ -1,5 +1,6 @@
 require "voxelcraft:core"
 
+---@diagnostic disable-next-line: lowercase-global
 function on_interact(x, y, z, player_id)
     voxelcraft_core.logger.debug(string.format(
         "voxelcraft.scripts.crafting_table.on_interact(" ..

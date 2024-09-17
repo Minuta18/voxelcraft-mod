@@ -76,8 +76,10 @@ function on_update()
 
     if info ~= nil then
         if has_value(info.materials, block.material(selected_block_id)) then
-            current_block_max_progress = 
-                current_block_max_progress / info.speed
+            if current_block_max_progress ~= -2 then
+                current_block_max_progress = 
+                    current_block_max_progress / info.speed
+            end
         end
     end
 
