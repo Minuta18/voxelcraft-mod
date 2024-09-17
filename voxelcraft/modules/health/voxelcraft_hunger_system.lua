@@ -91,14 +91,15 @@ function VoxelcraftHungerSystem:update_health()
             self.player_hunger = self.player_hunger - vconfig:get(
                 "health.hunger_regeneration_sub"
             )
-
-            if self.player_hunger == 0 then
-                health_system:damage(vconfig:get("health.hunger_damage"))
-            end
-            self.time_to_health_addition = vconfig:get(
-                "health.player_energy.health_addition_length"
-            );
         end
+
+        if self.player_hunger <= 0 then
+            health_system:damage(vconfig:get("health.hunger_damage"))
+        end
+
+        self.time_to_health_addition = vconfig:get(
+            "health.player_energy.health_addition_length"
+        );
     end
 end
 

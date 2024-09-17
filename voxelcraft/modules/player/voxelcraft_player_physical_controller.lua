@@ -18,11 +18,9 @@ function VoxelcraftPlayerPhysicalController:_block_running()
     end
     local player_hunger = hunger.hunger_storage:get(eid)
     if (player_hunger:get_hunger() < vconfig:get("health.min_hunger")) then
-        max_speed = self.max_hunger_speed
-    end
-    
-    if max_speed ~= 0 then
-        -- logger.debug(max_speed)
+        if (player_speed > self.max_hunger_speed) then
+            max_speed = self.max_hunger_speed
+        end
     end
 
     if max_speed ~= 0 then
@@ -229,7 +227,6 @@ function VoxelcraftPlayerPhysicalController:update()
             if player_hunger ~= nil then
                 player_hunger:update_health()
             end
-                -- self.player_hunger:update_health()
         end
     end
 end

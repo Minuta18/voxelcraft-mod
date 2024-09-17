@@ -43,19 +43,6 @@ end
 
 function on_update()
     -- TODO: refactor this function
-    -- if block.get(
-    --     selected_block[1], selected_block[2], selected_block[3]
-    -- ) ~= -1 then
-    --     if block.is_segment(
-    --         selected_block[1], selected_block[2], selected_block[3]
-    --     ) then
-    --         -- selected_block[1], selected_block[2], selected_block[3] =
-    --         --     block.seek_origin(
-    --         --         selected_block[1], selected_block[2], selected_block[3]
-    --         --     )
-    --         logger.debug("!")
-    --     end
-    -- end
 
     local selected_block_id = block.name(block.get(
         selected_block[1], selected_block[2], selected_block[3])

@@ -16,7 +16,6 @@ function BaseHealthSystem:set_eid() end
 function BaseHealthSystem:play_damage_animation() end
 function BaseHealthSystem:does_animation_plays() end
 function BaseHealthSystem:play_damage_sound() end
-function BaseHealthSystem:get_health() end
 function BaseHealthSystem:damage(health) end
 function BaseHealthSystem:get_serializer() end
 function BaseHealthSystem:set_serializer(serializer) end
