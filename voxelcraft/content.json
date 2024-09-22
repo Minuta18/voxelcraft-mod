@@ -10,7 +10,10 @@
     "farm",
     "andesite",
     "granite",
-    "diorite"
+    "diorite",
+    "andesite_slab",
+    "diorite_slab",
+    "granite_slab"
   ],
   "items": [
     "coal",
