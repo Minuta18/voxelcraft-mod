@@ -13,7 +13,13 @@
     "diorite",
     "andesite_slab",
     "diorite_slab",
-    "granite_slab"
+    "granite_slab",
+    "polished_andesite",
+    "polished_diorite",
+    "polished_granite",
+    "polished_granite_slab",
+    "polished_diorite_slab",
+    "polished_andesite_slab"
   ],
   "items": [
     "coal",

@@ -1,0 +1,14 @@
+{
+    "material": "base:wood",
+    "texture-faces": [
+        "polished_granite_slab",
+        "polished_granite_slab",
+        "polished_granite",
+        "polished_granite",
+        "polished_granite_slab",
+        "polished_granite_slab"
+    ],
+    "rotation": "pane",
+    "model": "aabb",
+    "hitbox": [0.0, 0.0, 0.0, 1.0, 0.5, 1.0]
+}

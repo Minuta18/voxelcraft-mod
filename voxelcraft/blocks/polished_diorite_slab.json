@@ -1,0 +1,14 @@
+{
+    "material": "base:wood",
+    "texture-faces": [
+        "polished_diorite_slab",
+        "polished_diorite_slab",
+        "polished_diorite",
+        "polished_diorite",
+        "polished_diorite_slab",
+        "polished_diorite_slab"
+    ],
+    "rotation": "pane",
+    "model": "aabb",
+    "hitbox": [0.0, 0.0, 0.0, 1.0, 0.5, 1.0]
+}

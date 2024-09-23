@@ -1,0 +1,14 @@
+{
+    "material": "base:wood",
+    "texture-faces": [
+        "polished_andesite_slab",
+        "polished_andesite_slab",
+        "polished_andesite",
+        "polished_andesite",
+        "polished_andesite_slab",
+        "polished_andesite_slab"
+    ],
+    "rotation": "pane",
+    "model": "aabb",
+    "hitbox": [0.0, 0.0, 0.0, 1.0, 0.5, 1.0]
+}
