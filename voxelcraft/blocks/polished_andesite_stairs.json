@@ -1,0 +1,18 @@
+{
+    "material": "base:stone",
+    "model": "custom",
+    "model-primitives": {
+        "aabbs": [
+            [0.0, 0.0, 0.0, 1.0, 0.5, 1.0,
+             "polished_andesite_slab", "polished_andesite_slab", 
+             "polished_andesite", "polished_andesite", 
+             "polished_andesite_slab", "polished_andesite_slab"],
+            [0.0, 0.5, 0.0, 1.0, 0.5, 0.5,
+             "polished_andesite_slab_upper_right", 
+             "polished_andesite_slab_upper_left", 
+             "polished_andesite_slab_upper", "polished_andesite_slab_upper",
+             "polished_andesite_slab_upper", "polished_andesite_slab_upper"]
+        ]
+    },
+    "rotation": "pane"
+}

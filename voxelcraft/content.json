@@ -1,25 +1,6 @@
 {
-  "blocks": [
-    "crafting_table",
-    "cobblestone",
-    "iron_ore",
-    "coal_ore",
-    "furnace",
-    "chest",
-    "mini_crafter",
-    "farm",
-    "andesite",
-    "granite",
-    "diorite",
-    "andesite_slab",
-    "diorite_slab",
-    "granite_slab",
-    "polished_andesite",
-    "polished_diorite",
-    "polished_granite",
-    "polished_granite_slab",
-    "polished_diorite_slab",
-    "polished_andesite_slab"
+  "entities": [
+    "breaker"
   ],
   "items": [
     "coal",
@@ -43,7 +24,32 @@
     "apple",
     "seeds"
   ],
-  "entities": [
-    "breaker"
+  "blocks": [
+    "crafting_table",
+    "cobblestone",
+    "iron_ore",
+    "coal_ore",
+    "furnace",
+    "chest",
+    "mini_crafter",
+    "farm",
+    "andesite",
+    "granite",
+    "diorite",
+    "andesite_slab",
+    "diorite_slab",
+    "granite_slab",
+    "polished_andesite",
+    "polished_diorite",
+    "polished_granite",
+    "polished_granite_slab",
+    "polished_diorite_slab",
+    "polished_andesite_slab",
+    "granite_stairs",
+    "andesite_stairs",
+    "diorite_stairs",
+    "polished_andesite_stairs",
+    "polished_diorite_stairs",
+    "polished_granite_stairs"
   ]
 }

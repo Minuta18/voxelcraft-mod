@@ -1,0 +1,16 @@
+{
+    "material": "base:wood",
+    "model": "custom",
+    "model-primitives": {
+        "aabbs": [
+            [0.0, 0.0, 0.0, 1.0, 0.5, 1.0,
+             "andesite_slab", "andesite_slab", "andesite",
+             "andesite", "andesite_slab", "andesite_slab"],
+            [0.0, 0.5, 0.0, 1.0, 0.5, 0.5,
+             "andesite_slab_upper_half", "andesite_slab_upper_half", 
+             "andesite_slab_upper", "andesite_slab_upper",
+             "andesite_slab_upper", "andesite_slab_upper"]
+        ]
+    },
+    "rotation": "pane"
+}

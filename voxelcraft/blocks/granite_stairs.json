@@ -1,0 +1,16 @@
+{
+    "material": "base:stone",
+    "model": "custom",
+    "model-primitives": {
+        "aabbs": [
+            [0.0, 0.0, 0.0, 1.0, 0.5, 1.0,
+             "granite_slab", "granite_slab", "granite",
+             "granite", "granite_slab", "granite_slab"],
+            [0.0, 0.5, 0.0, 1.0, 0.5, 0.5,
+             "granite_slab_upper_half", "granite_slab_upper_half", 
+             "granite_slab_upper", "granite_slab_upper",
+             "granite_slab_upper", "granite_slab_upper"]
+        ]
+    },
+    "rotation": "pane"
+}

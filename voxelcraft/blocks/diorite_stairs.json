@@ -1,0 +1,16 @@
+{
+    "material": "base:stone",
+    "model": "custom",
+    "model-primitives": {
+        "aabbs": [
+            [0.0, 0.0, 0.0, 1.0, 0.5, 1.0,
+             "diorite_slab", "diorite_slab", "diorite",
+             "diorite", "diorite_slab", "diorite_slab"],
+            [0.0, 0.5, 0.0, 1.0, 0.5, 0.5,
+             "diorite_slab_upper_half", "diorite_slab_upper_half", 
+             "diorite_slab_upper", "diorite_slab_upper",
+             "diorite_slab_upper", "diorite_slab_upper"]
+        ]
+    },
+    "rotation": "pane"
+}
