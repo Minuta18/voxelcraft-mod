@@ -151,6 +151,12 @@ crafting.add_crafting_table_craft({
 }, {"base:lamp.item", 1}, "voxelcraft:crafting_table")
 
 crafting.add_crafting_table_craft({
+    "core:empty", "base:glass.item", "core:empty",
+    "core:empty", "base:torch.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"base:lightbulb.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
     "core:empty", "core:empty", "core:empty",
     "core:empty", "base:stone.item", "base:stone.item",
     "core:empty", "base:stone.item", "base:stone.item",
@@ -164,15 +170,135 @@ crafting.add_crafting_table_craft({
 
 crafting.add_crafting_table_craft({
     "core:empty", "core:empty", "core:empty",
+    "base:planks.item", "base:planks.item", "base:planks.item",
+    "base:planks.item", "base:planks.item", "base:planks.item",
+}, {"base:pane.item", 3}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
     "core:empty", "base:metal.item", "core:empty",
     "core:empty", "core:empty", "core:empty",
 }, {"voxelcraft:iron", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "base:metal.item", "base:metal.item", "core:empty",
+    "base:metal.item", "base:metal.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"base:rust.item", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "base:rust.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"base:metal.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:iron", "core:empty", "voxelcraft:iron",
+    "voxelcraft:iron", "core:empty", "voxelcraft:iron",
+    "voxelcraft:iron", "core:empty", "voxelcraft:iron",
+}, {"base:pipe.item", 32}, "voxelcraft:crafting_table")
 
 crafting.add_crafting_table_craft({
     "core:empty", "base:planks.item", "base:planks.item",
     "core:empty", "base:planks.item", "base:planks.item",
     "core:empty", "base:planks.item", "base:planks.item",
 }, {"base:wooden_door.item", 3}, "voxelcraft:crafting_table")
+
+-- crafting.add_crafting_table_craft({
+--     "core:empty", "core:empty", "core:empty",
+--     "core:empty", "core:empty", "core:empty",
+--     "core:empty", "core:empty", "core:empty",
+-- }, {"core:empty", 0}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:andesite.item", "voxelcraft:andesite.item", "voxelcraft:andesite.item",
+}, {"voxelcraft:andesite_slab.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:diorite.item", "voxelcraft:diorite.item", "voxelcraft:diorite.item",
+}, {"voxelcraft:diorite_slab.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:granite.item", "voxelcraft:granite.item", "voxelcraft:granite.item",
+}, {"voxelcraft:granite_slab.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:diorite.item", "voxelcraft:diorite.item",
+    "core:empty", "voxelcraft:diorite.item", "voxelcraft:diorite.item",
+}, {"voxelcraft:polished_diorite.item", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:andesite.item", "voxelcraft:andesite.item",
+    "core:empty", "voxelcraft:andesite.item", "voxelcraft:andesite.item",
+}, {"voxelcraft:polished_andesite.item", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:granite.item", "voxelcraft:granite.item",
+    "core:empty", "voxelcraft:granite.item", "voxelcraft:granite.item",
+}, {"voxelcraft:polished_granite.item", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:polished_andesite.item", "voxelcraft:polished_andesite.item", "voxelcraft:polished_andesite.item",
+}, {"voxelcraft:polished_andesite_slab.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:polished_diorite.item", "voxelcraft:polished_diorite.item", "voxelcraft:polished_diorite.item",
+}, {"voxelcraft:polished_diorite_slab.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item",
+}, {"voxelcraft:polished_granite_slab.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:andesite.item", "core:empty", "core:empty",
+    "voxelcraft:andesite.item", "voxelcraft:andesite.item", "core:empty",
+    "voxelcraft:andesite.item", "voxelcraft:andesite.item", "voxelcraft:andesite.item",
+}, {"voxelcraft:andesite_stairs.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:diorite.item", "core:empty", "core:empty",
+    "voxelcraft:diorite.item", "voxelcraft:diorite.item", "core:empty",
+    "voxelcraft:diorite.item", "voxelcraft:diorite.item", "voxelcraft:diorite.item",
+}, {"voxelcraft:diorite_stairs.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:granite.item", "core:empty", "core:empty",
+    "voxelcraft:granite.item", "voxelcraft:granite.item", "core:empty",
+    "voxelcraft:granite.item", "voxelcraft:granite.item", "voxelcraft:granite.item",
+}, {"voxelcraft:granite_stairs.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:polished_andesite.item", "core:empty", "core:empty",
+    "voxelcraft:polished_andesite.item", "voxelcraft:polished_andesite.item", "core:empty",
+    "voxelcraft:polished_andesite.item", "voxelcraft:polished_andesite.item", "voxelcraft:polished_andesite.item",
+}, {"voxelcraft:polished_andesite_stairs.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:polished_diorite.item", "core:empty", "core:empty",
+    "voxelcraft:polished_diorite.item", "voxelcraft:polished_diorite.item", "core:empty",
+    "voxelcraft:polished_diorite.item", "voxelcraft:polished_diorite.item", "voxelcraft:polished_diorite.item",
+}, {"voxelcraft:polished_diorite_stairs.item", 6}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:polished_granite.item", "core:empty", "core:empty",
+    "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item", "core:empty",
+    "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item",
+}, {"voxelcraft:polished_granite_stairs.item", 6}, "voxelcraft:crafting_table")
 
 crafting.add_crafting_table_inventory_craft({
     "base:planks.item", "base:planks.item", 
