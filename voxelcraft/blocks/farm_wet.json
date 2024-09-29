@@ -5,7 +5,7 @@
         "aabbs": [
             [0.0, 0.0, 0.0, 1.0, 0.875, 1.0,
              "farm_side", "farm_side", "farm_bottom",
-             "farm_top", "farm_side", "farm_side"]
+             "farm_top_wet", "farm_side", "farm_side"]
         ]
     }
 }

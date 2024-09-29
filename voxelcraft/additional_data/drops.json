@@ -14,5 +14,7 @@
     "base:stone": "voxelcraft:cobblestone.item",
     "base:water": "core:empty",
     "voxelcraft:coal_ore": "voxelcraft:coal",
-    "voxelcraft:crafting_table": "voxelcraft:crafting_table.item"
+    "voxelcraft:crafting_table": "voxelcraft:crafting_table.item",
+    "voxelcraft:farm": "base:dirt.item",
+    "voxelcraft:farm_wet": "base:dirt.item"
 }

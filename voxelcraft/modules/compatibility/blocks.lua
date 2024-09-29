@@ -43,6 +43,12 @@ block_operations.destroy_block = function (x, y, z)
             )            
         end
     end
+
+    -- events.emit(block.name(block_id) .. ".broken", x, y, z)
+    local invid, slot = player.get_inventory(0)
+    local item_id, item_count = inventory.get(invid, slot)
+    local item_str_id = item.name(item_id)
+    events.emit(item_str_id .. ".blockbreakby", x, y, z, 0)
 end
 
 block_operations.get_rotation_by_normal = function (block_id, normal)
@@ -116,6 +122,11 @@ block_operations.interact_block = function (pos)
     local block_id = block.get(pos[1], pos[2], pos[3])
     local block_str_id = block.name(block_id)
     events.emit(block_str_id .. ".interact", pos[1], pos[2], pos[3])
+
+    local invid, slot = player.get_inventory(0)
+    local item_id, item_count = inventory.get(invid, slot)
+    local item_str_id = item.name(item_id)
+    events.emit(item_str_id .. ".useon", pos[1], pos[2], pos[3], 0)
 end
 
 block_operations.raycast_from_camera = function ()
