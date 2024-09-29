@@ -1,0 +1,32 @@
+{
+    "count": 2,
+    "pools": [
+        {
+            "probability": 1,
+            "count": 1,
+            "variant": [
+                {
+                    "id": "voxelcraft:seeds",
+                    "count": 4,
+                    "weight": 1
+                },
+                {
+                    "id": "voxelcraft:seeds",
+                    "count": 5,
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "probability": 1,
+            "count": 1,
+            "variant": [
+                {
+                    "id": "voxelcraft:wheat",
+                    "count": 1,
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

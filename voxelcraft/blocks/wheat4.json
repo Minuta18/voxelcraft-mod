@@ -1,0 +1,26 @@
+{
+    "material": "base:grass",
+    "model": "custom",
+    "model-primitives": {
+        "aabbs": [
+            [0.0, -0.125, 0.25, 1.0, 1.125, 0.01,
+             "empty", "empty", "empty",
+             "empty", "wheat4", "wheat4"],
+            [0.0, -0.125, 0.75, 1.0, 1.125, 0.01,
+             "empty", "empty", "empty",
+             "empty", "wheat4", "wheat4"],
+            [0.75, -0.125, 0.0, 0.01, 1.125, 1.0,
+             "wheat4", "wheat4", "empty",
+             "empty", "empty", "empty"],
+            [0.25, -0.125, 0.0, 0.01, 1.125, 1.0,
+             "wheat4", "wheat4", "empty",
+             "empty", "empty", "empty"]
+        ]
+    },
+    "hitbox": [0.0, 0.0, 0.0, 1.0, 1.0, 1.0],
+    "light-passing": true,
+    "sky-light-passing": true,
+    "obstacle": false,
+    "hidden": true,
+    "draw-group": 2
+}

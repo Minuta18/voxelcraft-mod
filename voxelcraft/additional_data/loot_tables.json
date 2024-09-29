@@ -1,6 +1,7 @@
 {
     "loot_tables": [
         "apple_drop",
-        "grass_drop"
+        "grass_drop",
+        "wheat_drop"
     ]
 }

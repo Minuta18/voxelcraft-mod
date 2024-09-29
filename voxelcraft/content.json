@@ -26,7 +26,11 @@
     "polished_andesite_stairs",
     "polished_diorite_stairs",
     "polished_granite_stairs",
-    "farm_wet"
+    "farm_wet",
+    "wheat1",
+    "wheat2",
+    "wheat3",
+    "wheat4"
   ],
   "items": [
     "coal",
@@ -48,7 +52,8 @@
     "wooden_shovel",
     "wooden_sword",
     "apple",
-    "seeds"
+    "seeds",
+    "wheat"
   ],
   "entities": [
     "breaker"

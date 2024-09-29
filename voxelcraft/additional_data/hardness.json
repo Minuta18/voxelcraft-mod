@@ -46,5 +46,9 @@
     "voxelcraft:granite_stairs": 50,
     "voxelcraft:polished_granite": 50,
     "voxelcraft:polished_granite_slab": 50,
-    "voxelcraft:polished_granite_stairs": 50
+    "voxelcraft:polished_granite_stairs": 50,
+    "voxelcraft:wheat1": 10,
+    "voxelcraft:wheat2": 10,
+    "voxelcraft:wheat3": 10,
+    "voxelcraft:wheat4": 10
 }
