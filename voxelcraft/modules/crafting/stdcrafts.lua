@@ -300,6 +300,66 @@ crafting.add_crafting_table_craft({
     "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item", "voxelcraft:polished_granite.item",
 }, {"voxelcraft:polished_granite_stairs.item", 6}, "voxelcraft:crafting_table")
 
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:wheat", "voxelcraft:wheat", "voxelcraft:wheat",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:bread", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+    "voxelcraft:wheat", "voxelcraft:wheat", "voxelcraft:wheat",
+}, {"voxelcraft:bread", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:wheat", "voxelcraft:wheat", "voxelcraft:wheat",
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:bread", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "voxelcraft:wheat", "voxelcraft:wheat", "voxelcraft:wheat",
+    "voxelcraft:wheat", "voxelcraft:wheat", "voxelcraft:wheat",
+    "voxelcraft:wheat", "voxelcraft:wheat", "voxelcraft:wheat",
+}, {"voxelcraft:wheat_block.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:wheat_block.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:wheat", 9}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "base:stone.item", "base:stone.item",
+    "core:empty", "base:stone.item", "base:stone.item",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:stone_bricks.item", 4}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:stone_bricks.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:stone_bricks_cracked.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:stone_bricks_cracked.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:stone_bricks_mossy.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:stone_bricks_mossy.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:stone_bricks_special.item", 1}, "voxelcraft:crafting_table")
+
+crafting.add_crafting_table_craft({
+    "core:empty", "core:empty", "core:empty",
+    "core:empty", "voxelcraft:stone_bricks_special.item", "core:empty",
+    "core:empty", "core:empty", "core:empty",
+}, {"voxelcraft:stone_bricks.item", 1}, "voxelcraft:crafting_table")
+
 crafting.add_crafting_table_inventory_craft({
     "base:planks.item", "base:planks.item", 
     "base:planks.item", "base:planks.item",

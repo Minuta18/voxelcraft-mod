@@ -1,0 +1,12 @@
+{
+    "texture-faces": [
+        "wheat_block",
+        "wheat_block",
+        "wheat_upper",
+        "wheat_upper",
+        "wheat_block",
+        "wheat_block"
+    ],
+    "inventory-size": 10,
+    "rotation": "pipe"
+}
