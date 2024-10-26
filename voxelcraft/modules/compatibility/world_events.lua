@@ -12,10 +12,6 @@ require "voxelcraft:player/init"
 
 local blocks_initialized = false
 
-input.add_callback("player.build", function()
-    eat_utils.eat(0)
-end)
-
 ---@diagnostic disable-next-line: lowercase-global
 world_events = {}
 
@@ -48,6 +44,10 @@ world_events.intialize = function ()
     health_bar.setup_bar(vconfig:get("health.max_health"))
     hunger_bar.setup_bar(vconfig:get("health.max_hunger"))
     -- hunger.set_hunger(data["hunger"])
+
+    input.add_callback("player.build", function()
+        eat_utils.eat(0)
+    end)
 end
 
 world_events.update = function ()

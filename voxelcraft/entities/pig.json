@@ -1,0 +1,5 @@
+{
+    "hitbox": [1.1, 1.1, 1.1],
+    "body-type": "static",
+    "blocking": true
+}

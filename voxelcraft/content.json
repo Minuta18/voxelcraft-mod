@@ -1,31 +1,4 @@
 {
-  "entities": [
-    "breaker"
-  ],
-  "items": [
-    "coal",
-    "iron_axe",
-    "iron_hoe",
-    "iron_pickaxe",
-    "iron_shovel",
-    "iron_sword",
-    "iron",
-    "stick",
-    "stone_axe",
-    "stone_hoe",
-    "stone_pickaxe",
-    "stone_shovel",
-    "stone_sword",
-    "wooden_axe",
-    "wooden_hoe",
-    "wooden_pickaxe",
-    "wooden_shovel",
-    "wooden_sword",
-    "apple",
-    "seeds",
-    "wheat",
-    "bread"
-  ],
   "blocks": [
     "crafting_table",
     "cobblestone",
@@ -63,5 +36,33 @@
     "stone_bricks_cracked",
     "stone_bricks_mossy",
     "stone_bricks_special"
+  ],
+  "items": [
+    "coal",
+    "iron_axe",
+    "iron_hoe",
+    "iron_pickaxe",
+    "iron_shovel",
+    "iron_sword",
+    "iron",
+    "stick",
+    "stone_axe",
+    "stone_hoe",
+    "stone_pickaxe",
+    "stone_shovel",
+    "stone_sword",
+    "wooden_axe",
+    "wooden_hoe",
+    "wooden_pickaxe",
+    "wooden_shovel",
+    "wooden_sword",
+    "apple",
+    "seeds",
+    "wheat",
+    "bread"
+  ],
+  "entities": [
+    "breaker",
+    "pig"
   ]
 }

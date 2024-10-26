@@ -11,3 +11,12 @@ console.add_command("kill player_id:int",
         end
     end
 )
+
+console.add_command(
+    "entity.spawn name:str", 
+    "Spawns entity", 
+    function (name)
+        local x, y, z = player.get_pos(0)
+        entities.spawn(name[1], {x, y, z})
+    end
+)
