@@ -1,5 +1,5 @@
 {
-    "voxelcraft:coal_ore": {
+    "base:coal_ore": {
         "min_height": 4,
         "max_height": 100,
         "min_size": 10,

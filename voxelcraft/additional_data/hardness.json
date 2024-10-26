@@ -24,7 +24,7 @@
     "base:wood": 20,
     "base:wooden_door": 20,
     "voxelcraft:chest": 20,
-    "voxelcraft:coal_ore": 100,
+    "base:coal_ore": 100,
     "voxelcraft:cobblestone": 60,
     "voxelcraft:crafting_table": 30,
     "voxelcraft:furnace": 50,

@@ -1,6 +1,5 @@
 crafting table=Верстак
 chest=Сундук
-coal ore=Угольная руда
 cobblestone=Булыжник
 farm=Пашня
 furnace=Печка
