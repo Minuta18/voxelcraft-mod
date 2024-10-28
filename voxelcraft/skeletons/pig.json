@@ -1,5 +1,38 @@
 {
     "root": {
-        "model": "breaker"
+        "nodes": [
+            {
+                "name": "body",
+                "model": "pig_body",
+                "offset": [0.0, -0.3125, 0.0],
+                "nodes": [
+                    {
+                        "name": "head",
+                        "model": "pig_head",
+                        "offset": [0.625, 0.125, 0.0]
+                    },
+                    {
+                        "name": "leg1",
+                        "model": "pig_leg",
+                        "offset": [0.3125, -0.4375, 0.1875]
+                    },
+                    {
+                        "name": "leg2",
+                        "model": "pig_leg",
+                        "offset": [0.3125, -0.4375, -0.1875]
+                    },
+                    {
+                        "name": "leg3",
+                        "model": "pig_leg",
+                        "offset": [-0.4375, -0.4375, 0.1875]
+                    },
+                    {
+                        "name": "leg4",
+                        "model": "pig_leg",
+                        "offset": [-0.4375, -0.4375, -0.1875]
+                    }
+                ]
+            }
+        ]
     }
 }

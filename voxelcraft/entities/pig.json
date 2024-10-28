@@ -1,5 +1,7 @@
 {
-    "hitbox": [1.1, 1.1, 1.1],
     "body-type": "static",
-    "blocking": true
+    "blocking": true,
+    "components": [
+        "voxelcraft:pig_animator"
+    ]
 }
