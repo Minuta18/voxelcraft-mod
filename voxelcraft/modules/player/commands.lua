@@ -20,3 +20,14 @@ console.add_command(
         entities.spawn(name[1], {x, y, z})
     end
 )
+
+console.add_command(
+    "genmap size_x:int size_z:int scale:int octaves:int filename:str", 
+    "Generates map for debug",
+    function (args)
+        local map = Heightmap(args[1], args[2])
+        map.noiseSeed = SEED
+        map:cellnoise({0, 0}, args[3], args[4])
+        map:dump(string.format("export:%s", args[5]))
+    end
+)

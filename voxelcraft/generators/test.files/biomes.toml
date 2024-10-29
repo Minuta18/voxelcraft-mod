@@ -22,7 +22,7 @@ plants = [
     {weight=0.03, block="base:flower"}
 ]
 
-structure-chance=0.0000000002
+structure-chance=0.0000002
 structures = [
     {name="tree1", weight=1},
     {name="tree2", weight=1},
