@@ -1,0 +1,115 @@
+[plains]
+parameters = [
+    {weight=1, value=0.5},
+    {weight=1, value=0.0},
+    {weight=1, value=0},
+]
+
+layers = [
+    {below-sea-level=false, height=1, block="base:grass_block"},
+    {below-sea-level=false, height=5, block="base:dirt"},
+    {height=-1, block="base:stone"},
+    {height=1, block="base:bazalt"}
+]
+
+sea-layers = [
+    {height=-1, block="base:water"}
+]
+ 
+plant-chance = 0.3
+plants = [
+    {weight=1, block="base:grass"},
+    {weight=0.03, block="base:flower"}
+]
+
+structure-chance=0.0000000002
+structures = [
+    {name="tree1", weight=1},
+    {name="tree2", weight=1},
+    {name="tree3", weight=1},
+    {name="tree4", weight=1},
+    {name="tree5", weight=1},
+    {name="tree6", weight=1},
+    {name="tree7", weight=1},
+    {name="tree8", weight=1},
+    {name="tree9", weight=1},
+    {name="tree10", weight=1},
+    {name="tree11", weight=1},
+    {name="tree12", weight=1},
+    {name="tree13", weight=1},
+    {name="tree14", weight=1},
+    {name="tree15", weight=1},
+    {name="tree16", weight=1},
+    {name="tree17", weight=1},
+    {name="tree18", weight=1},
+    {name="tree19", weight=1},
+    {name="tree20", weight=1},
+    {name="fallen_tree", weight=0.01},
+    {name="fallen_tree2", weight=0.01},
+]
+
+[ocean]
+parameters = [
+    {weight=1, value=0.5},
+    {weight=1, value=0.2},
+    {weight=1, value=0.4},
+]
+
+layers = [
+    {height=5, block="base:sand"},
+    {height=-1, block="base:stone"},
+    {height=1, block="base:bazalt"}
+]
+
+sea-layers = [
+    {height=-1, block="base:water"}
+]
+
+[forest]
+parameters = [
+    {weight=1, value=0.4},
+    {weight=1, value=0.1},
+    {weight=1, value=0},
+]
+
+layers = [
+    {below-sea-level=false, height=1, block="base:grass_block"},
+    {below-sea-level=false, height=5, block="base:dirt"},
+    {height=-1, block="base:stone"},
+    {height=1, block="base:bazalt"}
+]
+
+sea-layers = [
+    {height=-1, block="base:water"}
+]
+ 
+plant-chance = 0.7
+plants = [
+    {weight=1, block="base:grass"},
+    {weight=0.01, block="base:flower"}
+]
+
+structure-chance = 0.03
+structures = [
+    {name="tree2", weight=1},
+    {name="tree3", weight=1},
+    {name="tree4", weight=1},
+    {name="tree5", weight=1},
+    {name="tree6", weight=1},
+    {name="tree7", weight=1},
+    {name="tree8", weight=1},
+    {name="tree9", weight=1},
+    {name="tree10", weight=1},
+    {name="tree11", weight=1},
+    {name="tree12", weight=1},
+    {name="tree13", weight=1},
+    {name="tree14", weight=1},
+    {name="tree15", weight=1},
+    {name="tree16", weight=1},
+    {name="tree17", weight=1},
+    {name="tree18", weight=1},
+    {name="tree19", weight=1},
+    {name="tree20", weight=1},
+    {name="fallen_tree", weight=0.01},
+    {name="fallen_tree2", weight=0.01},
+]

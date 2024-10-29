@@ -1,0 +1,12 @@
+# Thanks @MihailRis for example of generator, which u can find there:
+# https://github.com/MihailRis/VoxelEngine-Cpp/blob/main/res/content/base
+# /generators/demo.toml
+
+# 1 - temperature
+# 2 - humidity
+# 3 - is_ocean
+biome-parameters = 3
+
+sea-level = 64
+
+heightmap-inputs = [1, 2, 3]
