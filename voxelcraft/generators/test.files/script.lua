@@ -4,6 +4,14 @@ function generate_heightmap(x, y, w, h, bpd, inputs)
     map:noise({x, y}, bpd * 0.1, 6, 0.01)
     map:add(0.28)
 
+    local hills_map = Heightmap(w, h)
+    hills_map.noiseSeed = SEED + 32892
+    hills_map:noise({x, y}, 0.1 * bpd, 6, 0.1)
+    hills_map:max(0.0)
+    hills_map:pow(2)
+    hills_map:mul(10.0)
+    map:add(hills_map)    
+
     local ocean_map = Heightmap(w, h)
     ocean_map.noiseSeed = SEED + 6794
     ocean_map:noise({x, y}, bpd * 0.1, 6, 0.07)
@@ -94,3 +102,13 @@ function place_structures_wide(x, z, w, d, chunk_height)
     end
     return placements
 end
+
+-- local x, y, w, h, s = 0, 0, 1000, 1000, 1
+
+-- local cliffs_map = Heightmap(w, h)
+-- cliffs_map.noiseSeed = SEED + 32892
+-- cliffs_map:noise({x, y}, 0.1 * s, 6, 0.1)
+-- cliffs_map:max(0.0)
+-- cliffs_map:pow(2)
+
+-- cliffs_map:dump("export:cliffs.png")
