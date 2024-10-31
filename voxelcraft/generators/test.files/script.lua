@@ -37,18 +37,18 @@ function generate_biome_parameters(x, y, w, h, s)
     ocean_biome_map:mul(4)
     ocean_biome_map:min(1)
 
-    local rivermap = Heightmap(w, h)
-    rivermap.noiseSeed = SEED
-    rivermap:noise({x+21, y+12}, 0.1 * s, 4)
-    rivermap:abs()
-    rivermap:mul(2.0)
-    rivermap:pow(0.1)
-    rivermap:max(0.5)
-    rivermap:mul(-1)
-    rivermap:add(1.0)
-    rivermap:min(-0.05)
+    -- local rivermap = Heightmap(w, h)
+    -- rivermap.noiseSeed = SEED
+    -- rivermap:noise({x, y}, 0.1 * s, 6, 0.7)
+    -- rivermap:abs()
+    -- rivermap:pow(0.2)
+    -- rivermap:sub(1.0)
+    -- rivermap:abs()
+    -- rivermap:sub(0.3)
+    -- rivermap:max(0.0)
+    -- rivermap:mul(0.1)
 
-    ocean_biome_map:add(rivermap)
+    -- ocean_biome_map:add(rivermap)
 
     return tempmap, hummap, ocean_biome_map
 end
