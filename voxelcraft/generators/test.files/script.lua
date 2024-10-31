@@ -1,3 +1,9 @@
+local _, dir = parse_path(__DIR__)
+local ores = require "voxelcraft:worldgen"
+ores.load(dir)
+
+math.randomseed(SEED)
+
 function generate_heightmap(x, y, w, h, bpd, inputs)  
     local map = Heightmap(w, h)
     map.noiseSeed = SEED + 3298
@@ -63,6 +69,7 @@ end
 
 function place_structures(x, z, w, d, hmap, chunk_height)
     local placements = {}
+    ores.place(placements, x, z, w, d, SEED, hmap, chunk_height)
     return placements
 end
 
@@ -102,13 +109,3 @@ function place_structures_wide(x, z, w, d, chunk_height)
     end
     return placements
 end
-
--- local x, y, w, h, s = 0, 0, 1000, 1000, 1
-
--- local cliffs_map = Heightmap(w, h)
--- cliffs_map.noiseSeed = SEED + 32892
--- cliffs_map:noise({x, y}, 0.1 * s, 6, 0.1)
--- cliffs_map:max(0.0)
--- cliffs_map:pow(2)
-
--- cliffs_map:dump("export:cliffs.png")

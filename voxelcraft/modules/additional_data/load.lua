@@ -10,7 +10,6 @@ local drops = {}
 local tools = {}
 local food = {}
 local loot_tables = {}
-local ores = {}
 
 loader.load_fuels = function (table, pack_name)
     local count = 0
@@ -22,17 +21,6 @@ loader.load_fuels = function (table, pack_name)
     end
     logger.info(string.format(
         "Loaded %d fuel recepies from pack %s", count, pack_name
-    ))
-end
-
-loader.load_ores = function (table, pack_name)
-    local count = 0
-    for k, v in pairs(table) do
-        ores[k] = v
-        count = count + 1
-    end
-    logger.info(string.format(
-        "Loaded %d ores from pack %s", count, pack_name
     ))
 end
 
@@ -159,9 +147,6 @@ loader.load_additional_data = function ()
 
         logger.debug(pack_ .. ":additional_data/tools.json")
         loader.load_file("tools.json", pack_, loader.load_tools)
-
-        logger.debug(pack_ .. ":additional_data/ores.json")
-        loader.load_file("ores.json", pack_, loader.load_ores)
     end
 end
 
@@ -207,8 +192,4 @@ end
 
 loader_api.get_food_by_item = function (str_id)
     return food[str_id]
-end
-
-loader_api.get_ores = function ()
-    return ores
 end

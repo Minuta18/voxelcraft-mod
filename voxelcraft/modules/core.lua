@@ -5,7 +5,6 @@ require "voxelcraft:gamemode/gamemode"
 require "voxelcraft:crafting/init"
 require "voxelcraft:additional_data/init"
 require "voxelcraft:health/init"
-require "voxelcraft:worldgen"
 
 ---@diagnostic disable-next-line: lowercase-global
 voxelcraft_core = {}

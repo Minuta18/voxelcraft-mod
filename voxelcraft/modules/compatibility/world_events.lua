@@ -36,7 +36,6 @@ world_events.intialize = function ()
 
     player_connect_handler:on_player_connect(0)
 
-    math.randomseed(os.time())
     world_events.kill_all_breakers()
     entities.spawn("voxelcraft:breaker", {0, 0, 0})
     loader.load_additional_data()

@@ -1,0 +1,33 @@
+[
+    {
+        "max_per_chunk": 50,
+        "structures": [
+            "coal1", "coal2", "coal3", "coal4", "coal5" 
+        ]
+    },
+    {
+        "max_per_chunk": 100,
+        "structures": [
+            "iron1", "iron2", "iron3", "iron4", "iron5", "iron6", "iron7", 
+            "iron8", "iron9", "iron10", "iron11" 
+        ]
+    },
+    {
+        "max_per_chunk": 5,
+        "structures": [
+            "andesite_vein"
+        ]
+    },
+    {
+        "max_per_chunk": 5,
+        "structures": [
+            "granite_vein", "granite_vein2", "granite_vein3"
+        ]
+    },
+    {
+        "max_per_chunk": 5,
+        "structures": [
+            "diorite1", "diorite2", "diorite3"
+        ]
+    }
+]
