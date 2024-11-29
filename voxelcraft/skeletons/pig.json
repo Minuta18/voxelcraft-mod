@@ -4,7 +4,7 @@
             {
                 "name": "body",
                 "model": "pig_body",
-                "offset": [0.0, -0.3125, 0.0],
+                "offset": [0.0, 0.125, 0.0],
                 "nodes": [
                     {
                         "name": "head",

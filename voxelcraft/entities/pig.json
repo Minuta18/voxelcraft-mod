@@ -1,7 +1,8 @@
 {
-    "body-type": "static",
+    "body-type": "dynamic",
     "blocking": true,
     "components": [
-        "voxelcraft:pig_animator"
-    ]
+        "voxelcraft:pig_ai"
+    ],
+    "hitbox": [1.0, 1.0, 1.0]
 }

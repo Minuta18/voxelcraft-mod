@@ -193,3 +193,7 @@ end
 loader_api.get_food_by_item = function (str_id)
     return food[str_id]
 end
+
+loader_api.get_loot_table = function (str_id)
+    return loot_tables[str_id]
+end

@@ -1,0 +1,26 @@
+{
+    "count": 1,
+    "pools": [
+        {
+            "probability": 1,
+            "count": 1,
+            "variant": [
+                {
+                    "id": "core:empty",
+                    "count": 0,
+                    "weight": 1
+                },
+                {
+                    "id": "voxelcraft:bread",
+                    "count": 2,
+                    "weight": 1
+                },
+                {
+                    "id": "voxelcraft:bread",
+                    "count": 3,
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}
